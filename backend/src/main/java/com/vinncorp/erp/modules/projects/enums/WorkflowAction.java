@@ -1,0 +1,18 @@
+package com.vinncorp.erp.modules.projects.enums;
+
+public enum WorkflowAction {
+    UPDATE_STATUS,
+    ASSIGN_USER,
+    ADD_COMMENT,
+    SET_PRIORITY,
+    SET_DUE_DATE,
+    CREATE_SUBTASK,
+    SEND_NOTIFICATION,
+    START_SPRINT,
+    MOVE_TO_SPRINT,
+    ADD_LABEL,
+    ESCALATE_TASK
+}
+
+
+

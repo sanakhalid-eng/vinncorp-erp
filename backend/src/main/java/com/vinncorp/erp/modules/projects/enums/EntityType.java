@@ -1,0 +1,35 @@
+package com.vinncorp.erp.modules.projects.enums;
+
+public enum EntityType {
+    TASK,
+    PROJECT,
+    COMMENT,
+    ATTACHMENT,
+    MEMBER,
+    WORKFLOW_STATUS,
+    TIME_LOG,
+    TIMESHEET_APPROVAL,
+    INVITATION,
+    ROLE,
+    SYSTEM,
+    WORKSPACE,
+    TASK_DEPENDENCY,
+    RECURRING_TEMPLATE,
+    RECURRING_OCCURRENCE,
+    WORKFLOW_RULE,
+    WORKFLOW_CONDITION,
+    WORKFLOW_EXECUTION_LOG,
+    TASK_SLA,
+    ESCALATION_RULE,
+    // CRM
+    LEAD,
+    CUSTOMER,
+    CONTACT,
+    OPPORTUNITY,
+    PIPELINE,
+    PIPELINE_STAGE,
+    CRM_ACTIVITY
+}
+
+
+

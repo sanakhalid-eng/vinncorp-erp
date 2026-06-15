@@ -1,0 +1,14 @@
+package com.vinncorp.erp.core.workspace.request;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class CreateWorkspaceInvitationRequest {
+    private String email;
+    private String workspaceRole;
+}
+

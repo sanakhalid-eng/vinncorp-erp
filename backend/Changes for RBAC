@@ -1,0 +1,20 @@
+1. deleted enums:
+    a. Role
+    b. permission
+2. Create 2 Entities:
+    a. Role
+    b. permission
+3. add Role in the User Entity
+4. Resolve Error Related to the Role:
+    a. update CustomUserDetails --> getAuthorities() and deleted getUser method.
+    b. created RoleRepository and RegisterResponse
+    c. update constructor and createUserFromRequest method --> UserServiceImpl (Role part)
+    d. update constructor and register method --> AuthServiceImpl (Role part) and update AuthController
+    e. update onAuthenticationSuccess method in the OAuth2SuccessHandler
+    f. update UserMapper class
+    g. update UserResponse class
+5. updated Security package
+    a. JWTUtil
+    b. JWTAuthFilter
+    c. OAuthSuccessHandler
+    d. AuthServiceImpl --> login

@@ -1,0 +1,33 @@
+-- V45: CRM Activities (touchpoint log per Lead/Customer/Contact/Opportunity)
+
+CREATE TABLE IF NOT EXISTS crm_activities (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    workspace_id BIGINT NOT NULL,
+    type VARCHAR(20) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    description TEXT,
+    activity_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    duration_minutes INT,
+    contact_id BIGINT,
+    customer_id BIGINT,
+    lead_id BIGINT,
+    opportunity_id BIGINT,
+    created_by BIGINT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL,
+    updated_by BIGINT,
+    deleted_at TIMESTAMP NULL,
+    deleted_by BIGINT,
+    KEY idx_crm_activities_workspace (workspace_id),
+    KEY idx_crm_activities_lead (lead_id),
+    KEY idx_crm_activities_customer (customer_id),
+    KEY idx_crm_activities_contact (contact_id),
+    KEY idx_crm_activities_opportunity (opportunity_id),
+    KEY idx_crm_activities_date (activity_date),
+    CONSTRAINT fk_crm_activities_workspace FOREIGN KEY (workspace_id) REFERENCES workspaces(id) ON DELETE CASCADE,
+    CONSTRAINT fk_crm_activities_contact FOREIGN KEY (contact_id) REFERENCES crm_contacts(id) ON DELETE SET NULL,
+    CONSTRAINT fk_crm_activities_customer FOREIGN KEY (customer_id) REFERENCES crm_customers(id) ON DELETE SET NULL,
+    CONSTRAINT fk_crm_activities_lead FOREIGN KEY (lead_id) REFERENCES crm_leads(id) ON DELETE SET NULL,
+    CONSTRAINT fk_crm_activities_opportunity FOREIGN KEY (opportunity_id) REFERENCES crm_opportunities(id) ON DELETE SET NULL,
+    CONSTRAINT fk_crm_activities_created_by FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

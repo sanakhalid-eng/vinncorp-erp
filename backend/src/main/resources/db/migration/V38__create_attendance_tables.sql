@@ -1,0 +1,76 @@
+-- HR Shifts
+CREATE TABLE IF NOT EXISTS hr_shifts (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    workspace_id BIGINT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    break_minutes INT DEFAULT 0,
+    grace_period_minutes INT DEFAULT 0,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by BIGINT,
+    updated_by BIGINT,
+    deleted_at DATETIME NULL,
+    deleted_by BIGINT NULL,
+    INDEX idx_hr_shifts_workspace (workspace_id),
+    INDEX idx_hr_shifts_active (workspace_id, is_active),
+    CONSTRAINT fk_hr_shifts_workspace FOREIGN KEY (workspace_id) REFERENCES workspaces(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- HR Holidays
+CREATE TABLE IF NOT EXISTS hr_holidays (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    workspace_id BIGINT NOT NULL,
+    name VARCHAR(200) NOT NULL,
+    holiday_date DATE NOT NULL,
+    holiday_type VARCHAR(50) NOT NULL DEFAULT 'PUBLIC',
+    description TEXT,
+    is_recurring BOOLEAN DEFAULT FALSE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by BIGINT,
+    updated_by BIGINT,
+    deleted_at DATETIME NULL,
+    deleted_by BIGINT NULL,
+    INDEX idx_hr_holidays_workspace (workspace_id),
+    INDEX idx_hr_holidays_date (workspace_id, holiday_date),
+    INDEX idx_hr_holidays_type (workspace_id, holiday_type),
+    CONSTRAINT fk_hr_holidays_workspace FOREIGN KEY (workspace_id) REFERENCES workspaces(id),
+    UNIQUE KEY uk_hr_holidays_date_name (workspace_id, holiday_date, name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- HR Attendance
+CREATE TABLE IF NOT EXISTS hr_attendance (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    workspace_id BIGINT NOT NULL,
+    employee_id BIGINT NOT NULL,
+    attendance_date DATE NOT NULL,
+    check_in_time DATETIME NULL,
+    check_out_time DATETIME NULL,
+    status VARCHAR(30) NOT NULL DEFAULT 'ABSENT',
+    shift_id BIGINT NULL,
+    work_hours DECIMAL(5,2) DEFAULT 0,
+    overtime_hours DECIMAL(5,2) DEFAULT 0,
+    late_minutes INT DEFAULT 0,
+    early_leave_minutes INT DEFAULT 0,
+    notes TEXT,
+    check_in_ip VARCHAR(45) NULL,
+    check_out_ip VARCHAR(45) NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by BIGINT,
+    updated_by BIGINT,
+    deleted_at DATETIME NULL,
+    deleted_by BIGINT NULL,
+    INDEX idx_hr_attendance_workspace (workspace_id),
+    INDEX idx_hr_attendance_employee (employee_id),
+    INDEX idx_hr_attendance_date (workspace_id, attendance_date),
+    INDEX idx_hr_attendance_status (workspace_id, status),
+    INDEX idx_hr_attendance_emp_date (employee_id, attendance_date),
+    CONSTRAINT fk_hr_attendance_workspace FOREIGN KEY (workspace_id) REFERENCES workspaces(id),
+    CONSTRAINT fk_hr_attendance_employee FOREIGN KEY (employee_id) REFERENCES hr_employees(id),
+    CONSTRAINT fk_hr_attendance_shift FOREIGN KEY (shift_id) REFERENCES hr_shifts(id),
+    UNIQUE KEY uk_hr_attendance_emp_date (employee_id, attendance_date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+target/
+.git/
+.idea/
+*.iml
+.env
+.env.local
+*.log
+.DS_Store

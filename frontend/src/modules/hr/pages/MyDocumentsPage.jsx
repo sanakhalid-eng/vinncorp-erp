@@ -1,0 +1,101 @@
+import { useEffect, useState } from 'react';
+import {
+  FileText,
+  Loader2,
+  Download,
+  Upload,
+  CheckCircle2,
+  Clock,
+} from 'lucide-react';
+import { toast } from 'sonner';
+import { getMyDocuments } from '../api/hrApi';
+
+const DOC_STATUS_ICON = {
+  Available: <CheckCircle2 className="w-4 h-4 text-emerald-600" />,
+  'Pending Upload': <Clock className="w-4 h-4 text-amber-600" />,
+};
+
+const DOC_STATUS_BADGE = {
+  Available: 'bg-emerald-100 text-emerald-700',
+  'Pending Upload': 'bg-amber-100 text-amber-700',
+};
+
+export default function MyDocumentsPage() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadDocuments();
+  }, []);
+
+  const loadDocuments = async () => {
+    setLoading(true);
+    try {
+      const result = await getMyDocuments();
+      setData(result);
+    } catch (e) {
+      toast.error(e.message || 'Failed to load documents');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center py-20">
+        <Loader2 className="w-8 h-8 animate-spin text-indigo-600" />
+      </div>
+    );
+  }
+
+  const documents = data?.documents || [];
+
+  return (
+    <div>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-2">
+          <FileText className="w-7 h-7 text-indigo-600" /> My Documents
+        </h1>
+        <p className="text-slate-500 mt-1">View and manage your employee documents</p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {documents.map((doc, idx) => (
+          <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg transition-shadow">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50">
+                <FileText className="w-6 h-6 text-indigo-600" />
+              </div>
+              <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${DOC_STATUS_BADGE[doc.status] || 'bg-slate-100 text-slate-600'}`}>
+                {DOC_STATUS_ICON[doc.status]}
+                {doc.status}
+              </span>
+            </div>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">{doc.name}</h3>
+            <p className="text-sm text-slate-500 mb-4">{doc.type?.replace(/_/g, ' ')}</p>
+            <div className="flex gap-2">
+              {doc.status === 'Available' && (
+                <button className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 text-xs font-medium hover:bg-indigo-100">
+                  <Download className="w-3 h-3" /> Download
+                </button>
+              )}
+              {doc.status === 'Pending Upload' && (
+                <button className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-50 text-amber-700 text-xs font-medium hover:bg-amber-100">
+                  <Upload className="w-3 h-3" /> Upload
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {documents.length === 0 && (
+        <div className="text-center py-20 bg-white rounded-2xl border border-slate-200">
+          <FileText className="w-16 h-16 text-slate-300 mx-auto mb-4" />
+          <h3 className="text-lg font-semibold text-slate-600 mb-2">No documents</h3>
+          <p className="text-slate-500 text-sm">No documents are available yet.</p>
+        </div>
+      )}
+    </div>
+  );
+}
