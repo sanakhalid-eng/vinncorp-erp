@@ -31,7 +31,7 @@ export default function Login() {
   }, [token, navigate]);
 
   const handleGithubLogin = () => {
-    window.location.href = "http://localhost:8081/oauth2/authorization/github";
+    window.location.href = "/oauth2/authorization/github";
   };
 
   const validateIdentifier = (value) => {
@@ -132,7 +132,7 @@ export default function Login() {
       const msg = err.response?.data?.message || err.message || "Login failed. Backend may not be running.";
       setError(msg);
       if (err.message?.includes('ERR_CONNECTION_REFUSED')) {
-        setError("Backend server not running. Start at http://localhost:8081");
+        setError("Backend server not running. Please contact support.");
       }
     } finally {
       setLoading(false);
