@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "sonner";
 
 const API = axios.create({
-  baseURL: import.meta.env.DEV ? "/api" : (import.meta.env.VITE_API_BASE_URL || "/api"),
+  baseURL: import.meta.env.VITE_API_BASE_URL || "/api",
   headers: {
     "Content-Type": "application/json",
   },
@@ -23,7 +23,7 @@ API.interceptors.request.use((req) => {
     }
   }
 
-  if ((import.meta as Record<string, any>).env.DEV) {
+  if (import.meta.env.DEV) {
     console.log(
       "API Request:",
       req.method?.toUpperCase(),
@@ -57,7 +57,7 @@ API.interceptors.response.use(
     const status = err.response?.status;
     const message = err.response?.data?.message || err.response?.data?.error || "An error occurred";
 
-    if ((import.meta as Record<string, any>).env.DEV) {
+    if (import.meta.env.DEV) {
       console.error(
         "API Error:",
         err.message,

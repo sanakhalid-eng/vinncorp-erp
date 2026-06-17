@@ -40,7 +40,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"})
 @RestController
 @RequestMapping("/api/auth")
 @Tag(name = "Authentication", description = "Login, register, refresh tokens, 2FA")

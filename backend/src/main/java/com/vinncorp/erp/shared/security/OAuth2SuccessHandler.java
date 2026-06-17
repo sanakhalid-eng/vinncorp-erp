@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import org.jspecify.annotations.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.*;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -17,6 +18,9 @@ import java.io.IOException;
 
 @Component
 public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
+
+    @Value("${app.base-url:http://localhost:5173}")
+    private String baseUrl;
 
     @Autowired
     private UserRepository userRepository;
@@ -63,8 +67,8 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
         // Generate JWT
         String token = jwtService.generateToken(user);
 
-        // Redirect to frontend
-        response.sendRedirect("http://localhost:5173/oauth-success?token=" + token);
+        // Redirect to frontend (uses app.base-url env var for production)
+        response.sendRedirect(baseUrl + "/oauth-success?token=" + token);
     }
 }
 

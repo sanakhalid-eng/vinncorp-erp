@@ -23,6 +23,7 @@ import com.vinncorp.erp.shared.exception.CustomAccessDeniedException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +53,9 @@ public class InvitationService {
     private final EmailService emailService;
     private final EmailTemplateService emailTemplateService;
     private final WorkspaceMemberRepository workspaceMemberRepository;
+
+    @Value("${app.base-url:http://localhost:5173}")
+    private String baseUrl;
 
     @Transactional
     public InvitationResponse createInvitation(Long projectId, CreateInvitationRequest request, Long invitedByUserId) {
@@ -295,7 +299,7 @@ public class InvitationService {
 
     private void sendInvitationEmail(ProjectInvitation invitation, String rawToken, String inviterName, String projectName, String roleName) {
         try {
-            String inviteUrl = "http://localhost:5173/invite/" + rawToken;
+            String inviteUrl = baseUrl + "/invite/" + rawToken;
             String expirationDate = invitation.getExpiresAt().toLocalDate().toString();
 
             Map<String, Object> variables = new HashMap<>();
