@@ -257,9 +257,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <argLine>--sun-misc-unsafe-memory-access=allow</argLine>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -274,15 +271,14 @@
                 </configuration>
             </plugin>
 
-            <!-- Flyway Maven plugin for repair, validate, info commands -->
+            <!-- Flyway plugin — DB connection is configured in application.properties at runtime.
+                 To run flyway:validate in CI, pass connection via -D flags:
+                 mvn flyway:validate -Dflyway.url=jdbc:mysql://... -Dflyway.user=... -Dflyway.password=... -->
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>11.14.1</version>
                 <configuration>
-                    <url>jdbc:mysql://localhost:3307/project_management</url>
-                    <user>root</user>
-                    <password>dummypassword</password>
                     <locations>
                         <location>filesystem:src/main/resources/db/migration</location>
                     </locations>
