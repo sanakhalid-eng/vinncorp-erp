@@ -32,11 +32,16 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.List;
 
 @EnableMethodSecurity
 @Configuration
 public class SecurityConfig {
+
+    @Value("${CORS_ALLOWED_ORIGINS:http://localhost:5173,https://frontend-production-d577.up.railway.app}")
+    private String allowedOrigins;
 
     @Autowired
     private JwtAuthFilter jwtAuthFilter;
@@ -109,7 +114,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173", "https://frontend-production-d577.up.railway.app"));
+        config.setAllowedOrigins(List.of(allowedOrigins.split(",")));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
@@ -126,7 +131,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173", "https://frontend-production-d577.up.railway.app")
+                        .allowedOrigins(allowedOrigins.split(","))
                         .allowedMethods("*")
                         .allowedHeaders("*");
             }

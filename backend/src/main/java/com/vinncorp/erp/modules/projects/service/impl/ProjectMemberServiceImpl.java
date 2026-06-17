@@ -31,6 +31,7 @@ import com.vinncorp.erp.core.workspace.repository.WorkspaceMemberRepository;
 import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -55,6 +56,9 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
     private final EmailService emailService;
     private final ActivityLogService activityLogService;
     private final PasswordEncoder passwordEncoder;
+
+    @Value("${app.base-url:http://localhost:5173}")
+    private String baseUrl;
 
     @Override
     public ProjectMemberResponse addMemberToProject(Long projectId, AddProjectMemberRequest request) {
@@ -384,7 +388,7 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
                         + "<p style='color:#4b5563; line-height:1.6; margin:0 0 12px 0;'>"
                         + "Open PMT-SK to view your new task and start collaborating.</p>";
             } else {
-                String registerUrl = "http://localhost:5173/register?email=" + assignee.getEmail();
+                String registerUrl = baseUrl + "/register?email=" + assignee.getEmail();
                 body = "<h2 style='color:#1f2937; margin:0 0 16px 0;'>You've been invited to a project</h2>"
                         + "<p style='color:#4b5563; line-height:1.6; margin:0 0 12px 0;'>"
                         + "<strong>" + inviterName + "</strong> has invited you to collaborate on the project "
