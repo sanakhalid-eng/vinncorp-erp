@@ -72,8 +72,8 @@ jobs:
             echo "Waiting... ($i/30)"
             sleep 2
           done
-      - name: Flyway validate
-        run: mvn flyway:validate -Dflyway.password=dummypassword --no-transfer-progress
+      - name: Flyway migrate
+        run: mvn flyway:migrate -Dflyway.password=dummypassword --no-transfer-progress
       - name: Build backend
         run: mvn clean package -DskipTests --no-transfer-progress
 
