@@ -237,19 +237,19 @@ public class DataInitializer implements CommandLineRunner {
             r.setScope(RoleScope.PROJECT);
             return roleRepository.save(r);
         });
-        pmLegacy.setPermissions(new HashSet<>(List.of(
-            permMap.get(PermissionConstants.VIEW_TASK),
-            permMap.get(PermissionConstants.CREATE_TASK),
-            permMap.get(PermissionConstants.EDIT_TASK),
-            permMap.get(PermissionConstants.DELETE_TASK),
-            permMap.get(PermissionConstants.MOVE_TASK),
-            permMap.get(PermissionConstants.ASSIGN_TASK),
-            permMap.get(PermissionConstants.ADD_MEMBER),
-            permMap.get(PermissionConstants.REMOVE_MEMBER),
-            permMap.get(PermissionConstants.CREATE_LABEL),
-            permMap.get(PermissionConstants.DELETE_LABEL),
-            permMap.get(PermissionConstants.ASSIGN_LABEL)
-        )));
+        Set<Permission> legacyPerms = new HashSet<>();
+        for (String name : List.of(
+            PermissionConstants.VIEW_TASK, PermissionConstants.CREATE_TASK,
+            PermissionConstants.EDIT_TASK, PermissionConstants.DELETE_TASK,
+            PermissionConstants.MOVE_TASK, PermissionConstants.ASSIGN_TASK,
+            PermissionConstants.ADD_MEMBER, PermissionConstants.REMOVE_MEMBER,
+            PermissionConstants.CREATE_LABEL, PermissionConstants.DELETE_LABEL,
+            PermissionConstants.ASSIGN_LABEL
+        )) {
+            Permission p = permMap.get(name);
+            if (p != null) legacyPerms.add(p);
+        }
+        pmLegacy.setPermissions(legacyPerms);
         roleRepository.save(pmLegacy);
 
         Role tmLegacy = roleRepository.findByName(PermissionConstants.TEAM_MEMBER).orElseGet(() -> {
