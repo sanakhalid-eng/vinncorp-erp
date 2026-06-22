@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.entity;
 
-import com.vinncorp.erp.core.audit.BaseTenantEntity;
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.audit.BaseTenantEntity;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.hr.enums.EmploymentType;
 import com.vinncorp.erp.shared.tenant.TenantScopedEntity;
 import jakarta.persistence.*;

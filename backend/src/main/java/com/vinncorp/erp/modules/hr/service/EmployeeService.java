@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.EmployeeCreateRequest;
-import com.vinncorp.erp.modules.hr.request.EmployeeUpdateRequest;
-import com.vinncorp.erp.modules.hr.response.EmployeeResponse;
+import com.vinncorp.erp.modules.hr.dto.request.EmployeeCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.request.EmployeeUpdateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.EmployeeResponse;
 
 import java.util.List;
 

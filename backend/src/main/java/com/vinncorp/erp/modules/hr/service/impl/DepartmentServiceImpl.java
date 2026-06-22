@@ -1,14 +1,14 @@
 package com.vinncorp.erp.modules.hr.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import com.vinncorp.erp.modules.hr.entity.Department;
 import com.vinncorp.erp.modules.hr.repository.DepartmentRepository;
-import com.vinncorp.erp.modules.hr.request.DepartmentCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.request.DepartmentCreateRequest;
 import com.vinncorp.erp.modules.hr.service.DepartmentService;
-import com.vinncorp.erp.modules.hr.response.DepartmentResponse;
+import com.vinncorp.erp.modules.hr.dto.response.DepartmentResponse;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.ConflictException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;

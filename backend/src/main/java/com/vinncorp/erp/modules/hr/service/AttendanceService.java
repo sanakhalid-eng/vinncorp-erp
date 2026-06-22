@@ -1,10 +1,10 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.AttendanceCheckInRequest;
-import com.vinncorp.erp.modules.hr.request.AttendanceCheckOutRequest;
-import com.vinncorp.erp.modules.hr.request.AttendanceUpdateRequest;
-import com.vinncorp.erp.modules.hr.response.AttendanceDashboardResponse;
-import com.vinncorp.erp.modules.hr.response.AttendanceResponse;
+import com.vinncorp.erp.modules.hr.dto.request.AttendanceCheckInRequest;
+import com.vinncorp.erp.modules.hr.dto.request.AttendanceCheckOutRequest;
+import com.vinncorp.erp.modules.hr.dto.request.AttendanceUpdateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.AttendanceDashboardResponse;
+import com.vinncorp.erp.modules.hr.dto.response.AttendanceResponse;
 
 import java.time.LocalDate;
 import java.util.List;

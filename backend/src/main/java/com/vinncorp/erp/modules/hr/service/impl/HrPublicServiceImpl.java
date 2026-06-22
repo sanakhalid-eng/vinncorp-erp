@@ -2,7 +2,7 @@ package com.vinncorp.erp.modules.hr.service.impl;
 
 import com.vinncorp.erp.modules.hr.enums.EmployeeStatus;
 import com.vinncorp.erp.modules.hr.repository.EmployeeRepository;
-import com.vinncorp.erp.modules.hr.response.EmployeeResponse;
+import com.vinncorp.erp.modules.hr.dto.response.EmployeeResponse;
 import com.vinncorp.erp.modules.hr.service.HrPublicService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -68,13 +68,13 @@ public class HrPublicServiceImpl implements HrPublicService {
 
     @EventListener
     @Transactional
-    public void onLeaveApproved(com.vinncorp.erp.modules.hr.events.LeaveApprovedEvent event) {
+    public void onLeaveApproved(com.vinncorp.erp.modules.hr.event.LeaveApprovedEvent event) {
         log.info("Leave approved for employee {} in workspace {}", event.getEmployeeId(), event.getWorkspaceId());
     }
 
     @EventListener
     @Transactional
-    public void onLeaveCancelled(com.vinncorp.erp.modules.hr.events.LeaveCancelledEvent event) {
+    public void onLeaveCancelled(com.vinncorp.erp.modules.hr.event.LeaveCancelledEvent event) {
         log.info("Leave cancelled for employee {} in workspace {}", event.getEmployeeId(), event.getWorkspaceId());
     }
 }

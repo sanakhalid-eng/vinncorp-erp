@@ -1,11 +1,11 @@
 package com.vinncorp.erp.modules.hr.service.impl;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import com.vinncorp.erp.modules.hr.entity.HrLeaveType;
 import com.vinncorp.erp.modules.hr.repository.HrLeaveTypeRepository;
-import com.vinncorp.erp.modules.hr.request.LeaveTypeCreateRequest;
-import com.vinncorp.erp.modules.hr.response.LeaveTypeResponse;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveTypeCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.LeaveTypeResponse;
 import com.vinncorp.erp.modules.hr.service.LeaveTypeService;
 import com.vinncorp.erp.shared.exception.ConflictException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;

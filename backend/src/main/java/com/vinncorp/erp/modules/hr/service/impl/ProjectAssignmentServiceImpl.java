@@ -1,15 +1,15 @@
 package com.vinncorp.erp.modules.hr.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import com.vinncorp.erp.modules.hr.entity.Employee;
 import com.vinncorp.erp.modules.hr.entity.HrProjectAssignment;
 import com.vinncorp.erp.modules.hr.repository.EmployeeRepository;
 import com.vinncorp.erp.modules.hr.repository.HrProjectAssignmentRepository;
-import com.vinncorp.erp.modules.hr.request.ProjectAssignmentRequest;
-import com.vinncorp.erp.modules.hr.response.ProjectAssignmentResponse;
+import com.vinncorp.erp.modules.hr.dto.request.ProjectAssignmentRequest;
+import com.vinncorp.erp.modules.hr.dto.response.ProjectAssignmentResponse;
 import com.vinncorp.erp.modules.hr.service.ProjectAssignmentService;
 import com.vinncorp.erp.shared.exception.ConflictException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
