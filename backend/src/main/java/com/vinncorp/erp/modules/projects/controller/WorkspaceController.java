@@ -1,14 +1,14 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.workspace.request.CreateWorkspaceRequest;
-import com.vinncorp.erp.core.workspace.request.WorkspacePreferencesRequest;
+import com.vinncorp.erp.platform.workspace.dto.request.CreateWorkspaceRequest;
+import com.vinncorp.erp.platform.workspace.dto.request.WorkspacePreferencesRequest;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.modules.projects.entity.CustomUserDetails;
 import com.vinncorp.erp.modules.projects.service.WorkspaceService;
 import org.springframework.web.multipart.MultipartFile;
-import com.vinncorp.erp.core.workspace.response.WorkspaceMemberResponse;
-import com.vinncorp.erp.core.workspace.response.WorkspaceResponse;
-import com.vinncorp.erp.core.workspace.response.WorkspaceSettingsResponse;
+import com.vinncorp.erp.platform.workspace.dto.response.WorkspaceMemberResponse;
+import com.vinncorp.erp.platform.workspace.dto.response.WorkspaceResponse;
+import com.vinncorp.erp.platform.workspace.dto.response.WorkspaceSettingsResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

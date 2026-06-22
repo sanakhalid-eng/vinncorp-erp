@@ -1,11 +1,11 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.shared.security.JwtUtil;
-import com.vinncorp.erp.core.auth.service.impl.RefreshTokenService;
-import com.vinncorp.erp.core.auth.service.impl.TwoFactorService;
-import com.vinncorp.erp.core.user.service.UserService;
+import com.vinncorp.erp.platform.auth.service.impl.RefreshTokenService;
+import com.vinncorp.erp.platform.auth.service.impl.TwoFactorService;
+import com.vinncorp.erp.platform.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;

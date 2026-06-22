@@ -1,11 +1,11 @@
 package com.vinncorp.erp.modules.projects.service;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.entity.WorkspaceMember;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceMemberRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.entity.WorkspaceMember;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceMemberRepository;
 
-import com.vinncorp.erp.core.workspace.enums.InvitationStatus;
+import com.vinncorp.erp.platform.workspace.enums.InvitationStatus;
 import com.vinncorp.erp.modules.projects.dto.request.CreateInvitationRequest;
 import com.vinncorp.erp.modules.projects.dto.response.InvitationResponse;
 import com.vinncorp.erp.modules.projects.entity.Project;

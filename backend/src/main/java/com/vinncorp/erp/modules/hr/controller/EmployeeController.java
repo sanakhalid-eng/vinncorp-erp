@@ -1,11 +1,11 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import com.vinncorp.erp.modules.hr.enums.EmployeeStatus;
 import com.vinncorp.erp.modules.hr.service.EmployeeService;
-import com.vinncorp.erp.modules.hr.request.EmployeeCreateRequest;
-import com.vinncorp.erp.modules.hr.request.EmployeeUpdateRequest;
-import com.vinncorp.erp.modules.hr.response.EmployeeResponse;
+import com.vinncorp.erp.modules.hr.dto.request.EmployeeCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.request.EmployeeUpdateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.EmployeeResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

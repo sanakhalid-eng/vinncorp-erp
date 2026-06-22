@@ -4,8 +4,22 @@ import {
   Search,
   Users,
   PackagePlus,
+  Inbox,
 } from "lucide-react";
 import Button from "./Button";
+
+export function EmptyState({ title = "No items found", message = "There are no items to display." }) {
+  return (
+    <div className="flex flex-col items-center justify-center py-16 text-center">
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 mb-4">
+        <Inbox className="h-8 w-8 text-slate-300" />
+      </div>
+      <h3 className="text-lg font-semibold text-slate-700 mb-1">{title}</h3>
+      <p className="text-sm text-slate-400 max-w-sm">{message}</p>
+    </div>
+  );
+}
+
 export function EmptyWorkspaceState({ onCreateProject, onInvite }) {
   return (
     <div className="flex flex-col items-center justify-center py-20 text-center">

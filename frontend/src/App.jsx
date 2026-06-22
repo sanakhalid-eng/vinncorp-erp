@@ -7,27 +7,27 @@ import {
   useParams,
   useLocation,
 } from "react-router-dom";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
-import OAuthSuccess from "./pages/OAuthSuccess";
-import RegistrationSuccess from "./pages/RegistrationSuccess";
-import Profile from "./pages/Profile";
+import Register from "./features/auth/pages/Register";
+import Login from "./features/auth/pages/Login";
+import ForgotPassword from "./features/auth/pages/ForgotPassword";
+import ResetPassword from "./features/auth/pages/ResetPassword";
+import OAuthSuccess from "./features/auth/pages/OAuthSuccess";
+import RegistrationSuccess from "./features/auth/pages/RegistrationSuccess";
+import Profile from "./features/auth/pages/Profile";
 import Home from "./pages/Home";
-import UserHome from "./pages/UserHome";
-import InvitationAccept from "./pages/InvitationAccept";
-import VerifyEmail from "./pages/VerifyEmail";
-import TwoFactorSetup from "./pages/TwoFactorSetup";
+import UserHome from "./features/analytics/pages/UserHome";
+import InvitationAccept from "./features/auth/pages/InvitationAccept";
+import VerifyEmail from "./features/auth/pages/VerifyEmail";
+import TwoFactorSetup from "./features/auth/pages/TwoFactorSetup";
 import Terms from "./pages/Terms";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Features from "./pages/Features";
-import Manage from "./pages/Manage";
+import Manage from "./features/settings/pages/Manage";
 import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
-import Forbidden from "./pages/Forbidden";
-import ProtectedRoute from "./components/ProtectedRoute";
-import WorkspaceOwnerRoute from "./components/WorkspaceOwnerRoute";
+import Forbidden from "./features/auth/pages/Forbidden";
+import ProtectedRoute from "./features/auth/components/ProtectedRoute";
+import WorkspaceOwnerRoute from "./features/auth/components/WorkspaceOwnerRoute";
 import { WorkspaceProvider } from "./context/WorkspaceContext";
 import WorkspaceLayout from "./layouts/WorkspaceLayout";
 import { PageSkeleton } from "./components/LoadingSkeleton";
@@ -35,79 +35,103 @@ import {
   MEMBER_VIEW,
   ROLE_ASSIGN_SYSTEM,
   PROJECT_EDIT,
+  PROJECT_VIEW,
+  PROJECT_VIEW_ALL,
+  PROJECT_CREATE,
+  TASK_VIEW,
+  TASK_VIEW_ALL,
+  TASK_CREATE,
   TIMESHEET_APPROVE,
   USER_VIEW,
   ROLE_VIEW,
   WORKFLOW_MANAGE,
   DASHBOARD_VIEW,
+  EMPLOYEE_VIEW,
+  DEPARTMENT_VIEW,
+  DESIGNATION_VIEW,
+  ATTENDANCE_VIEW,
+  LEAVE_VIEW,
+  LEAVE_APPROVE,
+  CRM_VIEW,
+  LEAD_VIEW,
+  CUSTOMER_VIEW,
+  CONTACT_VIEW,
+  DEAL_VIEW,
+  PIPELINE_VIEW,
+  FINANCE_VIEW,
 } from "./constants/permissions";
 
-const Projects = lazy(() => import("./pages/Projects"));
-const Tasks = lazy(() => import("./pages/Tasks"));
-const Users = lazy(() => import("./pages/Users"));
-const Roles = lazy(() => import("./pages/Roles"));
-const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
-const ProjectMembers = lazy(() => import("./pages/ProjectMembers"));
-const WorkflowStatuses = lazy(() => import("./pages/WorkflowStatuses"));
-const Board = lazy(() => import("./pages/Board"));
-const Sprints = lazy(() => import("./pages/Sprints"));
-const Analytics = lazy(() => import("./pages/Analytics"));
-const CalendarPage = lazy(() => import("./pages/CalendarPage"));
-const GanttPage = lazy(() => import("./pages/GanttPage"));
-const Timesheet = lazy(() => import("./pages/Timesheet"));
-const TimesheetApprovals = lazy(() => import("./pages/TimesheetApprovals"));
-const Webhooks = lazy(() => import("./pages/Webhooks"));
-const SlackIntegration = lazy(() => import("./pages/SlackIntegration"));
-const ProjectSettings = lazy(() => import("./pages/ProjectSettings"));
-const ProjectInvitations = lazy(() => import("./pages/ProjectInvitations"));
-const Notifications = lazy(() => import("./pages/Notifications"));
-const AuditLogs = lazy(() => import("./pages/AuditLogs"));
-const SystemHealth = lazy(() => import("./pages/SystemHealth"));
-const JobDashboard = lazy(() => import("./pages/JobDashboard"));
-const Settings = lazy(() => import("./pages/Settings"));
-const SystemSettings = lazy(() => import("./pages/SystemSettings"));
-const Workspaces = lazy(() => import("./pages/Workspaces"));
-const WorkspaceMembers = lazy(() => import("./pages/WorkspaceMembers"));
-const WorkspaceInvitations = lazy(() => import("./pages/WorkspaceInvitations"));
-const WorkspaceSettings = lazy(() => import("./pages/WorkspaceSettings"));
+const Projects = lazy(() => import("./features/projects/pages/Projects"));
+const Tasks = lazy(() => import("./features/tasks/pages/Tasks"));
+const Users = lazy(() => import("./features/system/pages/Users"));
+const Roles = lazy(() => import("./features/system/pages/Roles"));
+const ProjectDetails = lazy(() => import("./features/projects/pages/ProjectDetails"));
+const ProjectMembers = lazy(() => import("./features/projects/pages/ProjectMembers"));
+const WorkflowStatuses = lazy(() => import("./features/projects/pages/WorkflowStatuses"));
+const Board = lazy(() => import("./features/projects/pages/Board"));
+const Sprints = lazy(() => import("./features/sprints/pages/Sprints"));
+const Analytics = lazy(() => import("./features/analytics/pages/Analytics"));
+const CalendarPage = lazy(() => import("./features/tasks/pages/CalendarPage"));
+const GanttPage = lazy(() => import("./features/tasks/pages/GanttPage"));
+const Timesheet = lazy(() => import("./features/hr/pages/Timesheet"));
+const TimesheetApprovals = lazy(() => import("./features/hr/pages/TimesheetApprovals"));
+const Webhooks = lazy(() => import("./features/integrations/pages/Webhooks"));
+const SlackIntegration = lazy(() => import("./features/integrations/pages/SlackIntegration"));
+const ProjectSettings = lazy(() => import("./features/projects/pages/ProjectSettings"));
+const ProjectInvitations = lazy(() => import("./features/projects/pages/ProjectInvitations"));
+const Notifications = lazy(() => import("./features/notifications/pages/Notifications"));
+const AuditLogs = lazy(() => import("./features/system/pages/AuditLogs"));
+const SystemHealth = lazy(() => import("./features/system/pages/SystemHealth"));
+const JobDashboard = lazy(() => import("./features/analytics/pages/JobDashboard"));
+const Settings = lazy(() => import("./features/settings/pages/Settings"));
+const SystemSettings = lazy(() => import("./features/settings/pages/SystemSettings"));
+const Workspaces = lazy(() => import("./features/settings/pages/Workspaces"));
+const WorkspaceMembers = lazy(() => import("./features/settings/pages/WorkspaceMembers"));
+const WorkspaceInvitations = lazy(() => import("./features/settings/pages/WorkspaceInvitations"));
+const WorkspaceSettings = lazy(() => import("./features/settings/pages/WorkspaceSettings"));
 const WorkspaceInvitationAccept = lazy(
-  () => import("./pages/WorkspaceInvitationAccept"),
+  () => import("./features/auth/pages/WorkspaceInvitationAccept"),
 );
-const WorkspaceDashboard = lazy(() => import("./pages/WorkspaceDashboard"));
-const MemberDirectory = lazy(() => import("./pages/MemberDirectory"));
-const WorkspaceActivity = lazy(() => import("./pages/WorkspaceActivity"));
-const AutomationRules = lazy(() => import("./pages/AutomationRules"));
-const ExecutiveInsights = lazy(() => import("./pages/ExecutiveInsights"));
-const KnowledgeHub = lazy(() => import("./pages/KnowledgeHub"));
-const WorkspaceNotes = lazy(() => import("./pages/WorkspaceNotes"));
-const CreateTaskPage = lazy(() => import("./pages/CreateTaskPage"));
-const CreateProjectPage = lazy(() => import("./pages/CreateProjectPage"));
-const EmployeesPage = lazy(() => import("./modules/hr/pages/EmployeesPage"));
-const DepartmentsPage = lazy(() => import("./modules/hr/pages/DepartmentsPage"));
-const DesignationsPage = lazy(() => import("./modules/hr/pages/DesignationsPage"));
-const AttendancePage = lazy(() => import("./modules/hr/pages/AttendancePage"));
-const ShiftsPage = lazy(() => import("./modules/hr/pages/ShiftsPage"));
-const HolidaysPage = lazy(() => import("./modules/hr/pages/HolidaysPage"));
-const LeaveTypesPage = lazy(() => import("./modules/hr/pages/LeaveTypesPage"));
-const LeaveRequestsPage = lazy(() => import("./modules/hr/pages/LeaveRequestsPage"));
-const LeaveApprovalsPage = lazy(() => import("./modules/hr/pages/LeaveApprovalsPage"));
-const MyProfilePage = lazy(() => import("./modules/hr/pages/MyProfilePage"));
-const MyAttendancePage = lazy(() => import("./modules/hr/pages/MyAttendancePage"));
-const MyLeavesPage = lazy(() => import("./modules/hr/pages/MyLeavesPage"));
-const MyDocumentsPage = lazy(() => import("./modules/hr/pages/MyDocumentsPage"));
-const HRAnalyticsPage = lazy(() => import("./modules/hr/pages/HRAnalyticsPage"));
-const UtilizationReportPage = lazy(() => import("./modules/hr/pages/UtilizationReportPage"));
-const TaskDetailPage = lazy(() => import("./pages/TaskDetailPage"));
-const SuperAdminDashboard = lazy(() => import("./pages/SuperAdminDashboard"));
-const EmployeeDashboard = lazy(() => import("./pages/EmployeeDashboard"));
-const CrmDashboard = lazy(() => import("./modules/crm/pages/CrmDashboard"));
-const LeadsPage = lazy(() => import("./modules/crm/pages/LeadsPage"));
-const CustomersPage = lazy(() => import("./modules/crm/pages/CustomersPage"));
-const ContactsPage = lazy(() => import("./modules/crm/pages/ContactsPage"));
-const OpportunitiesPage = lazy(() => import("./modules/crm/pages/OpportunitiesPage"));
-const PipelinePage = lazy(() => import("./modules/crm/pages/PipelinePage"));
-const LeadDetailPage = lazy(() => import("./modules/crm/pages/LeadDetailPage"));
-const CustomerDetailPage = lazy(() => import("./modules/crm/pages/CustomerDetailPage"));
+const WorkspaceDashboard = lazy(() => import("./features/settings/pages/WorkspaceDashboard"));
+const MemberDirectory = lazy(() => import("./features/settings/pages/MemberDirectory"));
+const WorkspaceActivity = lazy(() => import("./features/settings/pages/WorkspaceActivity"));
+const AutomationRules = lazy(() => import("./features/integrations/pages/AutomationRules"));
+const ExecutiveInsights = lazy(() => import("./features/analytics/pages/ExecutiveInsights"));
+const KnowledgeHub = lazy(() => import("./features/settings/pages/KnowledgeHub"));
+const WorkspaceNotes = lazy(() => import("./features/settings/pages/WorkspaceNotes"));
+const CreateTaskPage = lazy(() => import("./features/tasks/pages/CreateTaskPage"));
+const CreateProjectPage = lazy(() => import("./features/projects/pages/CreateProjectPage"));
+const EmployeesPage = lazy(() => import("./features/hr/pages/EmployeesPage"));
+const DepartmentsPage = lazy(() => import("./features/hr/pages/DepartmentsPage"));
+const DesignationsPage = lazy(() => import("./features/hr/pages/DesignationsPage"));
+const AttendancePage = lazy(() => import("./features/hr/pages/AttendancePage"));
+const ShiftsPage = lazy(() => import("./features/hr/pages/ShiftsPage"));
+const HolidaysPage = lazy(() => import("./features/hr/pages/HolidaysPage"));
+const LeaveTypesPage = lazy(() => import("./features/hr/pages/LeaveTypesPage"));
+const LeaveRequestsPage = lazy(() => import("./features/hr/pages/LeaveRequestsPage"));
+const LeaveApprovalsPage = lazy(() => import("./features/hr/pages/LeaveApprovalsPage"));
+const MyProfilePage = lazy(() => import("./features/hr/pages/MyProfilePage"));
+const MyAttendancePage = lazy(() => import("./features/hr/pages/MyAttendancePage"));
+const MyLeavesPage = lazy(() => import("./features/hr/pages/MyLeavesPage"));
+const MyDocumentsPage = lazy(() => import("./features/hr/pages/MyDocumentsPage"));
+const HRAnalyticsPage = lazy(() => import("./features/hr/pages/HRAnalyticsPage"));
+const UtilizationReportPage = lazy(() => import("./features/hr/pages/UtilizationReportPage"));
+const TaskDetailPage = lazy(() => import("./features/tasks/pages/TaskDetailPage"));
+const SuperAdminDashboard = lazy(() => import("./features/system/pages/SuperAdminDashboard"));
+const EmployeeDashboard = lazy(() => import("./features/hr/pages/EmployeeDashboard"));
+const CrmDashboard = lazy(() => import("./features/crm/pages/CrmDashboard"));
+const LeadsPage = lazy(() => import("./features/crm/pages/LeadsPage"));
+const CustomersPage = lazy(() => import("./features/crm/pages/CustomersPage"));
+const ContactsPage = lazy(() => import("./features/crm/pages/ContactsPage"));
+const OpportunitiesPage = lazy(() => import("./features/crm/pages/OpportunitiesPage"));
+const PipelinePage = lazy(() => import("./features/crm/pages/PipelinePage"));
+const LeadDetailPage = lazy(() => import("./features/crm/pages/LeadDetailPage"));
+const CustomerDetailPage = lazy(() => import("./features/crm/pages/CustomerDetailPage"));
+const FinanceDashboard = lazy(() => import("./features/finance/pages/FinanceDashboard"));
+const InvoicesPage = lazy(() => import("./features/finance/pages/InvoicesPage"));
+const InvoiceDetailPage = lazy(() => import("./features/finance/pages/InvoiceDetailPage"));
+const PaymentsPage = lazy(() => import("./features/finance/pages/PaymentsPage"));
+const ExpensesPage = lazy(() => import("./features/finance/pages/ExpensesPage"));
 
 function WorkspaceRoute({ children }) {
   return (
@@ -162,11 +186,46 @@ function App() {
             }
           >
             <Route index element={<Navigate to="dashboard" replace />} />
-            <Route path="dashboard" element={<WorkspaceDashboard />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="projects/:id" element={<ProjectDetails />} />
-            <Route path="projects/:projectId/board" element={<Board />} />
-            <Route path="projects/:projectId/gantt" element={<GanttPage />} />
+            <Route
+              path="dashboard"
+              element={
+                <ProtectedRoute permission={DASHBOARD_VIEW}>
+                  <WorkspaceDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="projects"
+              element={
+                <ProtectedRoute permissions={[PROJECT_VIEW, PROJECT_VIEW_ALL]}>
+                  <Projects />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="projects/:id"
+              element={
+                <ProtectedRoute permissions={[PROJECT_VIEW, PROJECT_VIEW_ALL]}>
+                  <ProjectDetails />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="projects/:projectId/board"
+              element={
+                <ProtectedRoute permissions={[PROJECT_VIEW, PROJECT_VIEW_ALL]}>
+                  <Board />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="projects/:projectId/gantt"
+              element={
+                <ProtectedRoute permissions={[PROJECT_VIEW, PROJECT_VIEW_ALL]}>
+                  <GanttPage />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="projects/:projectId/invitations"
               element={
@@ -199,20 +258,97 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="tasks" element={<Tasks />} />
-            <Route path="tasks/:taskId" element={<TaskDetailPage />} />
-            <Route path="create-task" element={<CreateTaskPage />} />
-            <Route path="create-project" element={<CreateProjectPage />} />
+            <Route
+              path="tasks"
+              element={
+                <ProtectedRoute permissions={[TASK_VIEW, TASK_VIEW_ALL]}>
+                  <Tasks />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="tasks/:taskId"
+              element={
+                <ProtectedRoute permissions={[TASK_VIEW, TASK_VIEW_ALL]}>
+                  <TaskDetailPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create-task"
+              element={
+                <ProtectedRoute permission={TASK_CREATE}>
+                  <CreateTaskPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create-project"
+              element={
+                <ProtectedRoute permission={PROJECT_CREATE}>
+                  <CreateProjectPage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="activity" element={<WorkspaceActivity />} />
-            <Route path="analytics" element={<Analytics />} />
-            <Route path="insights" element={<ExecutiveInsights />} />
+            <Route
+              path="analytics"
+              element={
+                <ProtectedRoute permission={DASHBOARD_VIEW}>
+                  <Analytics />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="insights"
+              element={
+                <ProtectedRoute permission={DASHBOARD_VIEW}>
+                  <ExecutiveInsights />
+                </ProtectedRoute>
+              }
+            />
             <Route path="knowledge" element={<KnowledgeHub />} />
             <Route path="notes" element={<WorkspaceNotes />} />
-            <Route path="members" element={<MemberDirectory />} />
-            <Route path="settings" element={<WorkspaceSettings />} />
-            <Route path="sprints" element={<Sprints />} />
-            <Route path="calendar" element={<CalendarPage />} />
-            <Route path="gantt" element={<GanttPage />} />
+            <Route
+              path="members"
+              element={
+                <ProtectedRoute permission={MEMBER_VIEW}>
+                  <MemberDirectory />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="settings"
+              element={
+                <ProtectedRoute requiresAdmin>
+                  <WorkspaceSettings />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="sprints"
+              element={
+                <ProtectedRoute permission={WORKFLOW_MANAGE}>
+                  <Sprints />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="calendar"
+              element={
+                <ProtectedRoute permissions={[TASK_VIEW, TASK_VIEW_ALL]}>
+                  <CalendarPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="gantt"
+              element={
+                <ProtectedRoute permissions={[TASK_VIEW, TASK_VIEW_ALL]}>
+                  <GanttPage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="timesheet" element={<Timesheet />} />
             <Route
               path="timesheet-approvals"
@@ -254,11 +390,18 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="audit-logs" element={<AuditLogs />} />
+            <Route
+              path="audit-logs"
+              element={
+                <ProtectedRoute permission={ROLE_VIEW}>
+                  <AuditLogs />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="hr/employees"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={EMPLOYEE_VIEW}>
                   <EmployeesPage />
                 </ProtectedRoute>
               }
@@ -266,7 +409,7 @@ function App() {
             <Route
               path="hr/departments"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={DEPARTMENT_VIEW}>
                   <DepartmentsPage />
                 </ProtectedRoute>
               }
@@ -274,7 +417,7 @@ function App() {
             <Route
               path="hr/designations"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={DESIGNATION_VIEW}>
                   <DesignationsPage />
                 </ProtectedRoute>
               }
@@ -282,7 +425,7 @@ function App() {
             <Route
               path="hr/attendance"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={ATTENDANCE_VIEW}>
                   <AttendancePage />
                 </ProtectedRoute>
               }
@@ -290,7 +433,7 @@ function App() {
             <Route
               path="hr/shifts"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={LEAVE_VIEW}>
                   <ShiftsPage />
                 </ProtectedRoute>
               }
@@ -298,7 +441,7 @@ function App() {
             <Route
               path="hr/holidays"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={LEAVE_VIEW}>
                   <HolidaysPage />
                 </ProtectedRoute>
               }
@@ -306,7 +449,7 @@ function App() {
             <Route
               path="hr/leave-types"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={LEAVE_VIEW}>
                   <LeaveTypesPage />
                 </ProtectedRoute>
               }
@@ -314,7 +457,7 @@ function App() {
             <Route
               path="hr/leave-requests"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={LEAVE_VIEW}>
                   <LeaveRequestsPage />
                 </ProtectedRoute>
               }
@@ -322,7 +465,7 @@ function App() {
             <Route
               path="hr/leave-approvals"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={LEAVE_APPROVE}>
                   <LeaveApprovalsPage />
                 </ProtectedRoute>
               }
@@ -334,7 +477,7 @@ function App() {
             <Route
               path="hr/analytics"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={EMPLOYEE_VIEW}>
                   <HRAnalyticsPage />
                 </ProtectedRoute>
               }
@@ -342,19 +485,115 @@ function App() {
             <Route
               path="hr/utilization"
               element={
-                <ProtectedRoute permission={USER_VIEW}>
+                <ProtectedRoute permission={EMPLOYEE_VIEW}>
                   <UtilizationReportPage />
                 </ProtectedRoute>
               }
             />
-            <Route path="crm" element={<CrmDashboard />} />
-            <Route path="crm/leads" element={<LeadsPage />} />
-            <Route path="crm/leads/:leadId" element={<LeadDetailPage />} />
-            <Route path="crm/customers" element={<CustomersPage />} />
-            <Route path="crm/customers/:customerId" element={<CustomerDetailPage />} />
-            <Route path="crm/contacts" element={<ContactsPage />} />
-            <Route path="crm/opportunities" element={<OpportunitiesPage />} />
-            <Route path="crm/pipeline" element={<PipelinePage />} />
+            <Route
+              path="crm"
+              element={
+                <ProtectedRoute permission={CRM_VIEW}>
+                  <CrmDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="crm/leads"
+              element={
+                <ProtectedRoute permission={LEAD_VIEW}>
+                  <LeadsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="crm/leads/:leadId"
+              element={
+                <ProtectedRoute permission={LEAD_VIEW}>
+                  <LeadDetailPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="crm/customers"
+              element={
+                <ProtectedRoute permission={CUSTOMER_VIEW}>
+                  <CustomersPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="crm/customers/:customerId"
+              element={
+                <ProtectedRoute permission={CUSTOMER_VIEW}>
+                  <CustomerDetailPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="crm/contacts"
+              element={
+                <ProtectedRoute permission={CONTACT_VIEW}>
+                  <ContactsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="crm/opportunities"
+              element={
+                <ProtectedRoute permission={DEAL_VIEW}>
+                  <OpportunitiesPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="crm/pipeline"
+              element={
+                <ProtectedRoute permission={PIPELINE_VIEW}>
+                  <PipelinePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="finance"
+              element={
+                <ProtectedRoute permission={FINANCE_VIEW}>
+                  <FinanceDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="finance/invoices"
+              element={
+                <ProtectedRoute permission={FINANCE_VIEW}>
+                  <InvoicesPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="finance/invoices/:invoiceId"
+              element={
+                <ProtectedRoute permission={FINANCE_VIEW}>
+                  <InvoiceDetailPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="finance/payments"
+              element={
+                <ProtectedRoute permission={FINANCE_VIEW}>
+                  <PaymentsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="finance/expenses"
+              element={
+                <ProtectedRoute permission={FINANCE_VIEW}>
+                  <ExpensesPage />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="system-health"
               element={

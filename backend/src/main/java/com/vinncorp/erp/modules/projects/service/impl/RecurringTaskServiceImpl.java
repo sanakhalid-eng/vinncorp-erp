@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 
 import com.vinncorp.erp.modules.projects.dto.request.CreateRecurringRequest;
 import com.vinncorp.erp.modules.projects.dto.request.UpdateRecurringRequest;
@@ -21,7 +21,7 @@ import com.vinncorp.erp.shared.cache.CacheNames;
 import com.vinncorp.erp.shared.cache.CacheService;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

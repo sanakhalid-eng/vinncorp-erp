@@ -1,12 +1,12 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
 import com.vinncorp.erp.modules.projects.dto.response.CommandPaletteItemResponse;
 import com.vinncorp.erp.modules.projects.entity.CommandPaletteRecent;
 import com.vinncorp.erp.modules.projects.repository.CommandPaletteRecentRepository;
 import com.vinncorp.erp.modules.projects.service.CommandPaletteService;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

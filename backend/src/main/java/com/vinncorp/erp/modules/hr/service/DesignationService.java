@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.DesignationCreateRequest;
-import com.vinncorp.erp.modules.hr.response.DesignationResponse;
+import com.vinncorp.erp.modules.hr.dto.request.DesignationCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.DesignationResponse;
 
 import java.util.List;
 

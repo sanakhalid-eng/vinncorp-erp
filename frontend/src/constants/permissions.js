@@ -100,8 +100,14 @@ export const PAYROLL_RUN = "PAYROLL_RUN";
 export const BILLING_VIEW = "BILLING_VIEW";
 export const BILLING_MANAGE = "BILLING_MANAGE";
 
-// ─── Finance Permissions (future) ───────────────────────────────────────────
+// ─── Finance Permissions ────────────────────────────────────────────────────
 export const FINANCE_VIEW = "FINANCE_VIEW";
+export const FINANCE_CREATE = "FINANCE_CREATE";
+export const FINANCE_EDIT = "FINANCE_EDIT";
+export const FINANCE_DELETE = "FINANCE_DELETE";
+export const FINANCE_APPROVE_EXPENSE = "FINANCE_APPROVE_EXPENSE";
+export const FINANCE_MANAGE_PAYMENTS = "FINANCE_MANAGE_PAYMENTS";
+/** @deprecated Use granular FINANCE_* permissions */
 export const FINANCE_MANAGE = "FINANCE_MANAGE";
 
 // ─── CRM Permissions ────────────────────────────────────────────────────────
@@ -130,6 +136,7 @@ export const DEAL_UPDATE = "DEAL_UPDATE";
 export const DEAL_DELETE = "DEAL_DELETE";
 
 export const PIPELINE_VIEW = "PIPELINE_VIEW";
+export const PIPELINE_MANAGE = "PIPELINE_MANAGE";
 export const PIPELINE_CREATE = "PIPELINE_CREATE";
 export const PIPELINE_UPDATE = "PIPELINE_UPDATE";
 export const PIPELINE_DELETE = "PIPELINE_DELETE";
@@ -211,7 +218,15 @@ export const HR_PERMISSIONS = [
 ];
 
 export const BILLING_PERMISSIONS = [BILLING_VIEW, BILLING_MANAGE];
-export const FINANCE_PERMISSIONS = [FINANCE_VIEW, FINANCE_MANAGE];
+export const FINANCE_PERMISSIONS = [
+  FINANCE_VIEW,
+  FINANCE_CREATE,
+  FINANCE_EDIT,
+  FINANCE_DELETE,
+  FINANCE_APPROVE_EXPENSE,
+  FINANCE_MANAGE_PAYMENTS,
+  FINANCE_MANAGE,
+];
 export const CRM_PERMISSIONS = [
   CRM_VIEW,
   CRM_MANAGE,
@@ -233,6 +248,7 @@ export const CRM_PERMISSIONS = [
   DEAL_UPDATE,
   DEAL_DELETE,
   PIPELINE_VIEW,
+  PIPELINE_MANAGE,
   PIPELINE_CREATE,
   PIPELINE_UPDATE,
   PIPELINE_DELETE,
@@ -307,6 +323,11 @@ const PERMISSIONS = {
   BILLING_MANAGE,
   // Finance
   FINANCE_VIEW,
+  FINANCE_CREATE,
+  FINANCE_EDIT,
+  FINANCE_DELETE,
+  FINANCE_APPROVE_EXPENSE,
+  FINANCE_MANAGE_PAYMENTS,
   FINANCE_MANAGE,
   // CRM
   CRM_VIEW,

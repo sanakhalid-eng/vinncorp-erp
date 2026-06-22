@@ -1,10 +1,10 @@
 package com.vinncorp.erp.modules.crm.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
-import com.vinncorp.erp.modules.audit.service.AuditService;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.audit.service.AuditService;
 import com.vinncorp.erp.modules.crm.entity.Contact;
 import com.vinncorp.erp.modules.crm.entity.Customer;
 import com.vinncorp.erp.modules.crm.entity.CustomerContact;
@@ -13,7 +13,7 @@ import com.vinncorp.erp.modules.crm.entity.Opportunity;
 import com.vinncorp.erp.modules.crm.entity.Pipeline;
 import com.vinncorp.erp.modules.crm.entity.PipelineStage;
 import com.vinncorp.erp.modules.crm.enums.LeadStatus;
-import com.vinncorp.erp.modules.crm.events.LeadConvertedEvent;
+import com.vinncorp.erp.modules.crm.event.LeadConvertedEvent;
 import com.vinncorp.erp.modules.crm.repository.ContactRepository;
 import com.vinncorp.erp.modules.crm.repository.CustomerContactRepository;
 import com.vinncorp.erp.modules.crm.repository.CustomerRepository;

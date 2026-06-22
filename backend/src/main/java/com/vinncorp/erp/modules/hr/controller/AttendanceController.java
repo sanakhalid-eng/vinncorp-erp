@@ -1,11 +1,11 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.modules.hr.request.AttendanceCheckInRequest;
-import com.vinncorp.erp.modules.hr.request.AttendanceCheckOutRequest;
-import com.vinncorp.erp.modules.hr.request.AttendanceUpdateRequest;
-import com.vinncorp.erp.modules.hr.response.AttendanceDashboardResponse;
-import com.vinncorp.erp.modules.hr.response.AttendanceResponse;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.modules.hr.dto.request.AttendanceCheckInRequest;
+import com.vinncorp.erp.modules.hr.dto.request.AttendanceCheckOutRequest;
+import com.vinncorp.erp.modules.hr.dto.request.AttendanceUpdateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.AttendanceDashboardResponse;
+import com.vinncorp.erp.modules.hr.dto.response.AttendanceResponse;
 import com.vinncorp.erp.modules.hr.service.AttendanceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

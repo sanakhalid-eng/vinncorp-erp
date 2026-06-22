@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
 import com.vinncorp.erp.shared.cache.CacheService;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import com.vinncorp.erp.modules.projects.repository.ProjectMemberRepository;
 import com.vinncorp.erp.modules.projects.service.PermissionService;
 import lombok.RequiredArgsConstructor;

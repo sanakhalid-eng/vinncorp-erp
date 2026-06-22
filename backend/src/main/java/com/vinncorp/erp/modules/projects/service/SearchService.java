@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.projects.service;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.entity.WorkspaceMember;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.entity.WorkspaceMember;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import com.vinncorp.erp.modules.projects.entity.SearchResult;
 import com.vinncorp.erp.modules.projects.entity.SearchResult.SearchHit;
 import com.vinncorp.erp.modules.projects.entity.Comment;

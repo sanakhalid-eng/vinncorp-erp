@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
 
 import com.vinncorp.erp.modules.projects.enums.SprintStatus;
 import jakarta.persistence.*;

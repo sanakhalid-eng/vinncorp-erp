@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.workspace.request.CreateWorkspaceInvitationRequest;
-import com.vinncorp.erp.core.workspace.response.WorkspaceInvitationResponse;
-import com.vinncorp.erp.core.workspace.service.Impl.WorkspaceInvitationService;
+import com.vinncorp.erp.platform.workspace.dto.request.CreateWorkspaceInvitationRequest;
+import com.vinncorp.erp.platform.workspace.dto.response.WorkspaceInvitationResponse;
+import com.vinncorp.erp.platform.workspace.service.impl.WorkspaceInvitationService;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.modules.projects.entity.CustomUserDetails;
 import io.swagger.v3.oas.annotations.Operation;

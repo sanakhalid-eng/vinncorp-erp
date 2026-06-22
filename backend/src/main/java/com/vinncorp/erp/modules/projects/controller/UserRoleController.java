@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.user.entity.UserRole;
-import com.vinncorp.erp.core.user.service.UserRoleService;
+import com.vinncorp.erp.platform.user.entity.UserRole;
+import com.vinncorp.erp.platform.user.service.UserRoleService;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

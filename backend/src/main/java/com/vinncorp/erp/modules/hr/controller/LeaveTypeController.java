@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.modules.hr.request.LeaveTypeCreateRequest;
-import com.vinncorp.erp.modules.hr.response.LeaveTypeResponse;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveTypeCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.LeaveTypeResponse;
 import com.vinncorp.erp.modules.hr.service.LeaveTypeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

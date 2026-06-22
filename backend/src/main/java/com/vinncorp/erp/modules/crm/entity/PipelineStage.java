@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.crm.entity;
 
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

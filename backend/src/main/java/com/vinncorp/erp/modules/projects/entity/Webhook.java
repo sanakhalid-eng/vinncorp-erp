@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity

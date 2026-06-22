@@ -1,21 +1,21 @@
 package com.vinncorp.erp.modules.projects.service;
 
-import com.vinncorp.erp.core.workspace.entity.WorkspaceRole;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceMemberRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRoleRepository;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.entity.WorkspaceRole;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceMemberRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRoleRepository;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 
-import com.vinncorp.erp.core.workspace.response.WorkspaceResponse;
-import com.vinncorp.erp.core.workspace.response.WorkspaceSettingsResponse;
+import com.vinncorp.erp.platform.workspace.dto.response.WorkspaceResponse;
+import com.vinncorp.erp.platform.workspace.dto.response.WorkspaceSettingsResponse;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.entity.WorkspaceMember;
-import com.vinncorp.erp.core.workspace.request.CreateWorkspaceRequest;
-import com.vinncorp.erp.core.workspace.request.WorkspacePreferencesRequest;
-import com.vinncorp.erp.core.workspace.response.WorkspaceMemberResponse;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.entity.WorkspaceMember;
+import com.vinncorp.erp.platform.workspace.dto.request.CreateWorkspaceRequest;
+import com.vinncorp.erp.platform.workspace.dto.request.WorkspacePreferencesRequest;
+import com.vinncorp.erp.platform.workspace.dto.response.WorkspaceMemberResponse;
 import com.vinncorp.erp.modules.projects.enums.ActionType;
 import com.vinncorp.erp.modules.projects.enums.EntityType;
 import com.vinncorp.erp.shared.cache.CacheNames;

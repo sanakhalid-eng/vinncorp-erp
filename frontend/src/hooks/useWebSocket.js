@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback, useState } from "react";
-import { wsService } from "../services/websocket";
+import { wsService } from "../api/websocket";
 import { useAuth } from "../context/useAuth";
 export function useWebSocket(workspaceId) {
   const { token } = useAuth();
@@ -102,3 +102,4 @@ export function useWebSocket(workspaceId) {
   };
 }
 export default useWebSocket;
+

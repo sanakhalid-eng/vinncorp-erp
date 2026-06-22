@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ShieldCheck, Save, AlertCircle } from "lucide-react";
-import RoleBadge from "./members/RoleBadge.jsx";
+import RoleBadge from "../features/projects/components/members/RoleBadge.jsx";
 import { cn } from "../utils/cn.js";
 import { toast } from "sonner";
 import {

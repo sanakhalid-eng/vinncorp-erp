@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.modules.projects.dto.request.CreateInvitationRequest;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.modules.projects.dto.response.InvitationResponse;

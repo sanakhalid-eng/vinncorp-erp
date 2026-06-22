@@ -1,11 +1,11 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.auth.entity.PasswordResetToken;
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.auth.entity.PasswordResetToken;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.shared.exception.InvalidTokenException;
-import com.vinncorp.erp.core.auth.repository.PasswordResetTokenRepository;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.auth.service.PasswordResetService;
+import com.vinncorp.erp.platform.auth.repository.PasswordResetTokenRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.auth.service.PasswordResetService;
 import com.vinncorp.erp.modules.projects.service.EmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
