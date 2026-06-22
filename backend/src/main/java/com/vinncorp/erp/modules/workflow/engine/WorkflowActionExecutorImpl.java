@@ -1,12 +1,18 @@
 package com.vinncorp.erp.modules.workflow.engine;
 
-import com.vinncorp.erp.modules.projects.entity.*;
+import com.vinncorp.erp.modules.projects.entity.Comment;
+import com.vinncorp.erp.modules.projects.entity.Task;
+import com.vinncorp.erp.modules.projects.entity.TaskSprint;
 import com.vinncorp.erp.modules.projects.enums.TaskPriority;
 import com.vinncorp.erp.modules.projects.event.DomainEvent;
 import com.vinncorp.erp.modules.projects.event.EventPublisher;
-import com.vinncorp.erp.modules.projects.repository.*;
-import com.vinncorp.erp.modules.workflow.repository.*;
-import com.vinncorp.erp.modules.workflow.entity.*;
+import com.vinncorp.erp.modules.projects.repository.TaskRepository;
+import com.vinncorp.erp.modules.projects.repository.TaskSprintRepository;
+import com.vinncorp.erp.modules.projects.repository.SprintRepository;
+import com.vinncorp.erp.modules.projects.repository.CommentRepository;
+import com.vinncorp.erp.modules.workflow.entity.WorkflowRule;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
+import com.vinncorp.erp.modules.workflow.repository.WorkflowStatusRepository;
 import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.platform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

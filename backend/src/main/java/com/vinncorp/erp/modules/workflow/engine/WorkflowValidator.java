@@ -2,7 +2,7 @@ package com.vinncorp.erp.modules.workflow.engine;
 
 import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.entity.Task;
-import com.vinncorp.erp.modules.workflow.entity.WorkflowStatus;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;
 import com.vinncorp.erp.modules.workflow.repository.WorkflowStatusRepository;
 import com.vinncorp.erp.modules.workflow.repository.WorkflowTransitionRepository;

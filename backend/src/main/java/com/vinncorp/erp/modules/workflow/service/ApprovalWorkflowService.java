@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vinncorp.erp.modules.projects.entity.ApprovalRequest;
 import com.vinncorp.erp.modules.projects.entity.ApprovalStep;
-import com.vinncorp.erp.modules.workflow.entity.ApprovalWorkflow;
+import com.vinncorp.erp.modules.projects.entity.ApprovalWorkflow;
 import com.vinncorp.erp.modules.projects.event.WebSocketEvent;
 import com.vinncorp.erp.modules.projects.repository.ApprovalRequestRepository;
 import com.vinncorp.erp.modules.projects.repository.ApprovalStepRepository;

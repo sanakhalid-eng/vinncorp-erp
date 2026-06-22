@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.workflow.mapper;
 import com.vinncorp.erp.modules.workflow.dto.response.WorkflowStatusResponse;
-import com.vinncorp.erp.modules.workflow.entity.WorkflowStatus;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 
 public class WorkflowStatusMapper {
 

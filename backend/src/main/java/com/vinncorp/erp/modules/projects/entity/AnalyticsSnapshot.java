@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.audit.BaseTenantEntity;
+import com.vinncorp.erp.platform.audit.BaseTenantEntity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

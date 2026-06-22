@@ -2,6 +2,7 @@ package com.vinncorp.erp.modules.workflow.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import com.vinncorp.erp.modules.projects.entity.Project;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 @Entity
 @Table(name = "workflow_transition_rules") @Data
 

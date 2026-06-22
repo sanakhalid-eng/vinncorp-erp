@@ -1,13 +1,13 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.modules.projects.dto.response.NotificationResponse;
 import com.vinncorp.erp.modules.projects.dto.response.PaginatedResponse;
 import com.vinncorp.erp.modules.projects.service.NotificationService;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
 import com.vinncorp.erp.shared.mapper.PaginationMapper;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

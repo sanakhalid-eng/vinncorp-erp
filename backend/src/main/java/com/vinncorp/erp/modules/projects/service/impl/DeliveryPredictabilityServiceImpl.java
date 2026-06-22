@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
 import com.vinncorp.erp.modules.projects.dto.response.DeliveryPredictabilityResponse;
 import com.vinncorp.erp.modules.projects.entity.DeliveryPredictabilitySnapshot;
 import com.vinncorp.erp.modules.projects.entity.Project;
@@ -11,7 +11,7 @@ import com.vinncorp.erp.modules.projects.repository.ProjectRepository;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;
 import com.vinncorp.erp.modules.projects.service.DeliveryPredictabilityService;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

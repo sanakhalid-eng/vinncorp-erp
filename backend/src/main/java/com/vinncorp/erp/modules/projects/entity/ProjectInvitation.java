@@ -1,9 +1,9 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.workspace.enums.InvitationStatus;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.workspace.enums.InvitationStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

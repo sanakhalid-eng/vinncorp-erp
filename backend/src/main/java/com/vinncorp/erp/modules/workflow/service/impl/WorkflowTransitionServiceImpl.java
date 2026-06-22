@@ -2,7 +2,7 @@ package com.vinncorp.erp.modules.workflow.service.impl;
 import com.vinncorp.erp.modules.workflow.dto.request.WorkflowTransitionRequest;
 import com.vinncorp.erp.modules.workflow.dto.response.WorkflowTransitionResponse;
 import com.vinncorp.erp.modules.projects.entity.Project;
-import com.vinncorp.erp.modules.workflow.entity.WorkflowStatus;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 import com.vinncorp.erp.modules.workflow.entity.WorkflowTransition;
 import com.vinncorp.erp.modules.projects.repository.ProjectRepository;
 import com.vinncorp.erp.modules.workflow.repository.WorkflowStatusRepository;

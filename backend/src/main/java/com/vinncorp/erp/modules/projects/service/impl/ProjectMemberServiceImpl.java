@@ -1,9 +1,9 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.constants.PermissionConstants;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.entity.WorkspaceMember;
+import com.vinncorp.erp.platform.user.constants.PermissionConstants;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.entity.WorkspaceMember;
 import com.vinncorp.erp.modules.projects.dto.request.AddMultipleMembersRequest;
 import com.vinncorp.erp.modules.projects.dto.request.AddProjectMemberRequest;
 import com.vinncorp.erp.modules.projects.dto.request.ProjectMemberFilterRequest;
@@ -26,9 +26,9 @@ import com.vinncorp.erp.modules.projects.service.ProjectMemberService;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.ConflictException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceMemberRepository;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceMemberRepository;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

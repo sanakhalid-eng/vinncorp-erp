@@ -1,5 +1,5 @@
 package com.vinncorp.erp.modules.workflow.repository;
-import com.vinncorp.erp.modules.workflow.entity.WorkflowStatus;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;

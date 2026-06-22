@@ -1,14 +1,14 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.auth.request.ChangePasswordRequest;
-import com.vinncorp.erp.core.user.request.RegisterRequest;
-import com.vinncorp.erp.core.user.request.UpdateUserRequest;
-import com.vinncorp.erp.core.user.response.UserResponse;
+import com.vinncorp.erp.platform.auth.dto.request.ChangePasswordRequest;
+import com.vinncorp.erp.platform.user.dto.request.RegisterRequest;
+import com.vinncorp.erp.platform.user.dto.request.UpdateUserRequest;
+import com.vinncorp.erp.platform.user.dto.response.UserResponse;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.modules.projects.entity.ProjectRole;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.mapper.UserMapper;
-import com.vinncorp.erp.core.user.service.UserService;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.mapper.UserMapper;
+import com.vinncorp.erp.platform.user.service.UserService;
 
 import com.vinncorp.erp.modules.projects.repository.ProjectRoleRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.vinncorp.erp.core.user.mapper.UserMapper.toResponse;
+import static com.vinncorp.erp.platform.user.mapper.UserMapper.toResponse;
 
 @RestController
 @RequestMapping("/api/users")

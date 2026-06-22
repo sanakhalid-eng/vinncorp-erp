@@ -3,7 +3,7 @@ import com.vinncorp.erp.modules.workflow.dto.request.WorkflowStatusOrderRequest;
 import com.vinncorp.erp.modules.workflow.dto.request.WorkflowStatusRequest;
 import com.vinncorp.erp.modules.workflow.dto.response.WorkflowStatusResponse;
 import com.vinncorp.erp.modules.projects.entity.Project;
-import com.vinncorp.erp.modules.workflow.entity.WorkflowStatus;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 import com.vinncorp.erp.modules.workflow.mapper.WorkflowStatusMapper;
 import com.vinncorp.erp.modules.projects.repository.ProjectRepository;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;

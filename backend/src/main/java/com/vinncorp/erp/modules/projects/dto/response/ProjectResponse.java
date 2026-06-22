@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.dto.response;
 
-import com.vinncorp.erp.core.user.response.UserResponse;
+import com.vinncorp.erp.platform.user.dto.response.UserResponse;
 import com.vinncorp.erp.modules.projects.enums.ProjectPriority;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

@@ -1,14 +1,13 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.entity.UserRole;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.UserRole;
 import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
