@@ -1,5 +1,7 @@
 package com.vinncorp.erp.shared.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import java.util.Base64;
 @Service
 public class EncryptionService {
 
+    private static final Logger log = LoggerFactory.getLogger(EncryptionService.class);
     private static final String ALGORITHM = "AES/GCM/NoPadding";
     private static final int GCM_IV_LENGTH = 12;
     private static final int GCM_TAG_LENGTH = 128;
@@ -21,10 +24,18 @@ public class EncryptionService {
 
     public EncryptionService(@Value("${encryption.secret-key:}") String base64Key) {
         if (base64Key == null || base64Key.isBlank()) {
-            throw new IllegalStateException("encryption.secret-key must be configured");
+            log.warn("encryption.secret-key not configured, generating ephemeral AES key");
+            try {
+                javax.crypto.KeyGenerator keyGen = javax.crypto.KeyGenerator.getInstance("AES");
+                keyGen.init(256);
+                this.key = keyGen.generateKey();
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to generate AES key", e);
+            }
+        } else {
+            byte[] decoded = Base64.getDecoder().decode(base64Key);
+            this.key = new SecretKeySpec(decoded, "AES");
         }
-        byte[] decoded = Base64.getDecoder().decode(base64Key);
-        this.key = new SecretKeySpec(decoded, "AES");
     }
 
     public String encrypt(String plaintext) {
