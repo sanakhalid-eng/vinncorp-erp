@@ -2,8 +2,8 @@ package com.vinncorp.erp.integration;
 
 import com.vinncorp.erp.AbstractIntegrationTest;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.workspace.enums.InvitationStatus;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.workspace.enums.InvitationStatus;
 import com.vinncorp.erp.modules.projects.dto.response.InvitationResponse;
 import com.vinncorp.erp.modules.projects.entity.ProjectInvitation;
 import com.vinncorp.erp.modules.projects.repository.ProjectInvitationRepository;
@@ -52,6 +52,7 @@ class InvitationAcceptanceIntegrationTest extends AbstractIntegrationTest {
         invitation.setToken(hashToken(RAW_TOKEN));
         invitation.setStatus(InvitationStatus.PENDING);
         invitation.setExpiresAt(LocalDateTime.now().plusDays(7));
+        invitationRepository.save(invitation);
 
         InvitationResponse accepted = invitationService.acceptInvitation(RAW_TOKEN, newUser.getId());
 

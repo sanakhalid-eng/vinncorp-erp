@@ -1,13 +1,13 @@
 package com.vinncorp.erp.shared.tenant;
 
 import com.vinncorp.erp.modules.projects.entity.Project;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
 import com.vinncorp.erp.shared.exception.CustomAccessDeniedException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
 import com.vinncorp.erp.modules.projects.repository.ProjectRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceMemberRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceMemberRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

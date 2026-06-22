@@ -1,17 +1,17 @@
 package com.vinncorp.erp.shared.config;
 
-import com.vinncorp.erp.core.user.repository.RoleRepository;
-import com.vinncorp.erp.core.user.repository.PermissionRepository;
-import com.vinncorp.erp.core.user.repository.GlobalRoleRepository;
-import com.vinncorp.erp.core.user.repository.UserGlobalRoleRepository;
-import com.vinncorp.erp.core.user.constants.PermissionConstants;
-import com.vinncorp.erp.core.user.entity.Permission;
-import com.vinncorp.erp.core.user.entity.GlobalRole;
-import com.vinncorp.erp.core.user.entity.UserGlobalRole;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.RoleRepository;
+import com.vinncorp.erp.platform.user.repository.PermissionRepository;
+import com.vinncorp.erp.platform.user.repository.GlobalRoleRepository;
+import com.vinncorp.erp.platform.user.repository.UserGlobalRoleRepository;
+import com.vinncorp.erp.platform.user.constants.PermissionConstants;
+import com.vinncorp.erp.platform.user.entity.Permission;
+import com.vinncorp.erp.platform.user.entity.GlobalRole;
+import com.vinncorp.erp.platform.user.entity.UserGlobalRole;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.modules.projects.repository.ProjectRoleRepository;
-import com.vinncorp.erp.core.user.repository.RolePermissionRepository;
+import com.vinncorp.erp.platform.user.repository.RolePermissionRepository;
 import com.vinncorp.erp.modules.projects.repository.ProjectMemberRepository;
 
 import com.vinncorp.erp.modules.projects.entity.*;

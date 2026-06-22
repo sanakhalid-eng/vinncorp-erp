@@ -1,9 +1,9 @@
 package com.vinncorp.erp.shared.security;
 
-import com.vinncorp.erp.core.user.repository.RoleRepository;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.user.repository.UserRoleRepository;
+import com.vinncorp.erp.platform.user.repository.RoleRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRoleRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import org.jspecify.annotations.NonNull;

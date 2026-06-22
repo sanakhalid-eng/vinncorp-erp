@@ -1,6 +1,6 @@
 package com.vinncorp.erp.shared.scheduling;
 
-import com.vinncorp.erp.core.auth.repository.EmailVerificationTokenRepository;
+import com.vinncorp.erp.platform.auth.repository.EmailVerificationTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

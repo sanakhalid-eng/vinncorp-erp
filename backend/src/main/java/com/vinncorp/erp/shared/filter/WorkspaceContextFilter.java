@@ -1,14 +1,14 @@
 package com.vinncorp.erp.shared.filter;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceMemberRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceMemberRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import com.vinncorp.erp.shared.security.JwtUtil;
 import com.vinncorp.erp.modules.projects.entity.CustomUserDetails;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.core.workspace.service.Impl.DefaultWorkspaceResolver;
-import com.vinncorp.erp.core.workspace.utils.TenantContext;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.service.impl.DefaultWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.utils.TenantContext;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

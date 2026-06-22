@@ -1,7 +1,7 @@
 package com.vinncorp.erp.integration;
 
 import com.vinncorp.erp.AbstractIntegrationTest;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
 import com.vinncorp.erp.modules.projects.dto.response.BlockedStatusResponse;
 import com.vinncorp.erp.modules.projects.dto.response.DependencyGraphResponse;
 import com.vinncorp.erp.modules.projects.dto.response.TaskDependencyResponse;

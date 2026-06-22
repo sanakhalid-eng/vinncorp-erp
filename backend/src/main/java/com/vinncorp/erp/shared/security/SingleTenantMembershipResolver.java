@@ -1,8 +1,8 @@
 package com.vinncorp.erp.shared.security;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.user.repository.UserGlobalRoleRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserGlobalRoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
