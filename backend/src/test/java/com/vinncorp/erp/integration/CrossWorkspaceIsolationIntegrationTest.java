@@ -7,7 +7,7 @@ import com.vinncorp.erp.modules.projects.dto.request.CreateProjectRequest;
 import com.vinncorp.erp.modules.projects.dto.request.TimeLogRequest;
 import com.vinncorp.erp.modules.projects.dto.response.ProjectResponse;
 import com.vinncorp.erp.modules.projects.entity.*;
-import com.vinncorp.erp.modules.workflow.entity.WorkflowStatus;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.CustomAccessDeniedException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
