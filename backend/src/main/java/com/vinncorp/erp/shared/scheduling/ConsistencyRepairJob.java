@@ -2,7 +2,7 @@ package com.vinncorp.erp.shared.scheduling;
 
 import com.vinncorp.erp.modules.projects.entity.Label;
 import com.vinncorp.erp.modules.projects.entity.Task;
-import com.vinncorp.erp.modules.workflow.entity.WorkflowStatus;
+import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 import com.vinncorp.erp.modules.projects.repository.LabelRepository;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;
 import com.vinncorp.erp.modules.workflow.repository.WorkflowStatusRepository;
