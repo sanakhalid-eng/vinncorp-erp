@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.crm.entity;
 
-import com.vinncorp.erp.core.audit.BaseTenantEntity;
+import com.vinncorp.erp.platform.audit.BaseTenantEntity;
 import com.vinncorp.erp.shared.tenant.TenantScopedEntity;
 import jakarta.persistence.*;
 import lombok.*;
