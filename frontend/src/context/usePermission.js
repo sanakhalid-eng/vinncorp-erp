@@ -1,7 +1,8 @@
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { useAuth } from "../context/useAuth.js";
 import { useProjectPermission } from "../context/ProjectPermissionContext.jsx";
-import { getMyPermissions } from "../api/permissionApi";
+import { getMyPermissions } from "../features/settings/api/permissionApi";
+import { canAccess as checkAccess } from "../utils/accessControl.js";
 import {
   PROJECT_VIEW,
   PROJECT_VIEW_ALL,
@@ -53,6 +54,31 @@ import {
   DESIGNATION_DELETE,
   WORKSPACE_MANAGE,
   PLATFORM_MANAGE,
+  CRM_VIEW,
+  CRM_MANAGE,
+  LEAD_VIEW,
+  LEAD_CREATE,
+  LEAD_UPDATE,
+  LEAD_DELETE,
+  CUSTOMER_VIEW,
+  CUSTOMER_CREATE,
+  CUSTOMER_UPDATE,
+  CUSTOMER_DELETE,
+  CONTACT_VIEW,
+  CONTACT_CREATE,
+  DEAL_VIEW,
+  DEAL_CREATE,
+  PIPELINE_VIEW,
+  PIPELINE_MANAGE,
+  FINANCE_VIEW,
+  FINANCE_CREATE,
+  FINANCE_EDIT,
+  FINANCE_DELETE,
+  FINANCE_APPROVE_EXPENSE,
+  FINANCE_MANAGE_PAYMENTS,
+  ATTENDANCE_VIEW,
+  LEAVE_VIEW,
+  LEAVE_APPROVE,
 } from "../constants/permissions.js";
 
 /**
@@ -428,6 +454,73 @@ export const usePermission = () => {
     [hasPermission],
   );
 
+  const canAccess = useCallback(
+    (options) =>
+      checkAccess({
+        ...options,
+        hasPermission,
+        hasAnyPermission,
+        hasRole,
+        hasAnyRole,
+        hasMinRoleLevel,
+        isAdmin,
+        isSuperAdmin,
+        globalRoles,
+        user,
+      }),
+    [
+      hasPermission,
+      hasAnyPermission,
+      hasRole,
+      hasAnyRole,
+      hasMinRoleLevel,
+      isAdmin,
+      isSuperAdmin,
+      globalRoles,
+      user,
+    ],
+  );
+
+  // CRM permissions
+  const canViewCrm = useCallback(() => hasPermission(CRM_VIEW), [hasPermission]);
+  const canManageCrm = useCallback(() => hasPermission(CRM_MANAGE), [hasPermission]);
+  const canViewLeads = useCallback(() => hasPermission(LEAD_VIEW), [hasPermission]);
+  const canCreateLead = useCallback(() => hasPermission(LEAD_CREATE), [hasPermission]);
+  const canUpdateLead = useCallback(() => hasPermission(LEAD_UPDATE), [hasPermission]);
+  const canDeleteLead = useCallback(() => hasPermission(LEAD_DELETE), [hasPermission]);
+  const canViewCustomers = useCallback(() => hasPermission(CUSTOMER_VIEW), [hasPermission]);
+  const canCreateCustomer = useCallback(() => hasPermission(CUSTOMER_CREATE), [hasPermission]);
+  const canUpdateCustomer = useCallback(() => hasPermission(CUSTOMER_UPDATE), [hasPermission]);
+  const canDeleteCustomer = useCallback(() => hasPermission(CUSTOMER_DELETE), [hasPermission]);
+  const canViewContacts = useCallback(() => hasPermission(CONTACT_VIEW), [hasPermission]);
+  const canCreateContact = useCallback(() => hasPermission(CONTACT_CREATE), [hasPermission]);
+  const canViewDeals = useCallback(() => hasPermission(DEAL_VIEW), [hasPermission]);
+  const canCreateDeal = useCallback(() => hasPermission(DEAL_CREATE), [hasPermission]);
+  const canViewPipeline = useCallback(() => hasPermission(PIPELINE_VIEW), [hasPermission]);
+  const canManagePipeline = useCallback(() => hasPermission(PIPELINE_MANAGE), [hasPermission]);
+
+  // Finance permissions
+  const canViewFinance = useCallback(() => hasPermission(FINANCE_VIEW), [hasPermission]);
+  const canCreateFinance = useCallback(() => hasPermission(FINANCE_CREATE), [hasPermission]);
+  const canEditFinance = useCallback(() => hasPermission(FINANCE_EDIT), [hasPermission]);
+  const canDeleteFinance = useCallback(() => hasPermission(FINANCE_DELETE), [hasPermission]);
+  const canApproveExpense = useCallback(
+    () => hasPermission(FINANCE_APPROVE_EXPENSE),
+    [hasPermission],
+  );
+  const canManagePayments = useCallback(
+    () => hasPermission(FINANCE_MANAGE_PAYMENTS),
+    [hasPermission],
+  );
+
+  // HR extended permissions
+  const canViewAttendance = useCallback(
+    () => hasPermission(ATTENDANCE_VIEW),
+    [hasPermission],
+  );
+  const canViewLeave = useCallback(() => hasPermission(LEAVE_VIEW), [hasPermission]);
+  const canApproveLeave = useCallback(() => hasPermission(LEAVE_APPROVE), [hasPermission]);
+
   return {
     userRole,
     userRoles: workspaceRoles,
@@ -485,6 +578,32 @@ export const usePermission = () => {
     canDeleteDesignation,
     canManageWorkspace,
     canManagePlatform,
+    canAccess,
+    canViewCrm,
+    canManageCrm,
+    canViewLeads,
+    canCreateLead,
+    canUpdateLead,
+    canDeleteLead,
+    canViewCustomers,
+    canCreateCustomer,
+    canUpdateCustomer,
+    canDeleteCustomer,
+    canViewContacts,
+    canCreateContact,
+    canViewDeals,
+    canCreateDeal,
+    canViewPipeline,
+    canManagePipeline,
+    canViewFinance,
+    canCreateFinance,
+    canEditFinance,
+    canDeleteFinance,
+    canApproveExpense,
+    canManagePayments,
+    canViewAttendance,
+    canViewLeave,
+    canApproveLeave,
     isAdmin,
     isSuperAdmin,
     isSupportAdmin,

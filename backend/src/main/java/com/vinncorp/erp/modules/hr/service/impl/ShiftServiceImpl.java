@@ -2,11 +2,11 @@ package com.vinncorp.erp.modules.hr.service.impl;
 
 import com.vinncorp.erp.modules.hr.entity.HrShift;
 import com.vinncorp.erp.modules.hr.repository.HrShiftRepository;
-import com.vinncorp.erp.modules.hr.request.ShiftCreateRequest;
-import com.vinncorp.erp.modules.hr.response.ShiftResponse;
+import com.vinncorp.erp.modules.hr.dto.request.ShiftCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.ShiftResponse;
 import com.vinncorp.erp.modules.hr.service.ShiftService;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import com.vinncorp.erp.shared.exception.ConflictException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;

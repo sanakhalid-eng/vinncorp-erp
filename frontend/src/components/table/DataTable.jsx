@@ -6,9 +6,12 @@ import {
   ChevronsUpDown,
   ChevronLeft,
   ChevronRight,
-  Loader2,
   Inbox,
 } from "lucide-react";
+import { useIsMobile } from "../../hooks/useBreakpoint";
+import { clsx } from "clsx";
+import { TableRowSkeleton } from "../LoadingSkeleton";
+import EmptyState from "../EmptyState";
 
 export default function DataTable({
   columns,
@@ -18,7 +21,9 @@ export default function DataTable({
   searchPlaceholder = "Search...",
   searchFields,
   emptyMessage = "No data found",
+  emptyDescription,
   emptyIcon: EmptyIcon = Inbox,
+  emptyAction,
   pageSize: initialPageSize = 10,
   pageSizeOptions = [10, 25, 50, 100],
   onRowClick,
@@ -30,6 +35,7 @@ export default function DataTable({
   totalRecords,
   hidePagination = false,
 }) {
+  const isMobile = useIsMobile();
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState(null);
   const [sortDir, setSortDir] = useState("asc");
@@ -131,13 +137,66 @@ export default function DataTable({
 
       <div className="overflow-hidden rounded-xl border border-surface-200 bg-white shadow-soft dark:border-surface-700 dark:bg-surface-900">
         {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="h-8 w-8 animate-spin text-primary-500" />
-          </div>
+          isMobile ? (
+            <div className="divide-y divide-surface-100 p-4 space-y-3 dark:divide-surface-800">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div key={i} className="animate-pulse space-y-2 rounded-xl border border-surface-100 p-4 dark:border-surface-800">
+                  <div className="h-4 w-2/3 rounded bg-surface-200 dark:bg-surface-700" />
+                  <div className="h-3 w-1/2 rounded bg-surface-200 dark:bg-surface-700" />
+                  <div className="h-3 w-1/3 rounded bg-surface-200 dark:bg-surface-700" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead className="border-b border-surface-200 bg-surface-50 dark:border-surface-700 dark:bg-surface-800/50">
+                  <tr>
+                    {columns.map((col) => (
+                      <th key={col.header} className="px-4 py-3 font-medium text-surface-600 dark:text-surface-400">
+                        {col.header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {Array.from({ length: 6 }).map((_, i) => (
+                    <TableRowSkeleton key={i} columns={columns.length} />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )
         ) : paginatedData.length === 0 ? (
-          <div className="py-20 text-center">
-            <EmptyIcon className="mx-auto mb-3 h-10 w-10 text-surface-300 dark:text-surface-600" />
-            <p className="text-surface-500 dark:text-surface-400">{emptyMessage}</p>
+          <EmptyState
+            icon={EmptyIcon}
+            title={emptyMessage}
+            description={emptyDescription}
+            action={emptyAction}
+          />
+        ) : isMobile ? (
+          <div className="divide-y divide-surface-100 dark:divide-surface-800">
+            {paginated.map((row, idx) => (
+              <div
+                key={row.id || idx}
+                onClick={onRowClick ? () => onRowClick(row) : undefined}
+                className={clsx(
+                  "space-y-2 p-4",
+                  onRowClick && "cursor-pointer active:bg-surface-50 dark:active:bg-surface-800/50",
+                )}
+              >
+                {columns
+                  .filter((col) => col.header !== "Actions" || col.render)
+                  .map((col) => (
+                    <div key={col.header} className="flex items-start justify-between gap-3 text-sm">
+                      <span className="shrink-0 text-surface-500 dark:text-surface-400">{col.header}</span>
+                      <span className="text-right text-surface-900 dark:text-surface-100">
+                        {col.render ? col.render(row) : row[col.accessor] ?? "-"}
+                      </span>
+                    </div>
+                  ))}
+              </div>
+            ))}
           </div>
         ) : (
           <div className="overflow-x-auto">

@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.constants.PermissionConstants;
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.constants.PermissionConstants;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.dto.request.LabelRequest;
 import com.vinncorp.erp.modules.projects.dto.request.TaskLabelAssignmentRequest;
 import com.vinncorp.erp.modules.projects.dto.response.LabelResponse;
@@ -19,7 +19,7 @@ import com.vinncorp.erp.modules.projects.util.ColorValidator;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.ForbiddenOperationException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

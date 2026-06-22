@@ -21,13 +21,26 @@ import {
   Building2,
   Globe,
 } from "lucide-react";
-import { globalSearch } from "../api/searchApi";
+import { globalSearch } from "../features/settings/api/searchApi";
 import {
   getCommandPaletteRecent,
   recordCommandPaletteRecent,
   searchCommandPalette,
-} from "../api/notesApi";
+} from "../features/settings/api/notesApi";
 import { useWorkspace } from "../context/WorkspaceContext";
+import { useAuth } from "../context/useAuth";
+import { usePermission } from "../context/usePermission";
+import { filterByAccess } from "../utils/accessControl";
+import {
+  PROJECT_CREATE,
+  PROJECT_VIEW,
+  PROJECT_VIEW_ALL,
+  TASK_CREATE,
+  TASK_VIEW,
+  TASK_VIEW_ALL,
+  DASHBOARD_VIEW,
+  WORKFLOW_MANAGE,
+} from "../constants/permissions";
 import {
   useShortcut,
   getShortcutLabel,
@@ -64,6 +77,7 @@ const QUICK_ACTIONS = [
     shortcut: "N",
     action: "create-task",
     category: "Tasks",
+    requiresPermission: TASK_CREATE,
   },
   {
     label: "Create Project",
@@ -71,48 +85,56 @@ const QUICK_ACTIONS = [
     shortcut: "Meta+N",
     action: "create-project",
     category: "Projects",
+    requiresPermission: PROJECT_CREATE,
   },
   {
     label: "Go to Dashboard",
     icon: BarChart3,
     action: "go-dashboard",
     category: "Navigation",
+    requiresPermission: DASHBOARD_VIEW,
   },
   {
     label: "Go to Tasks",
     icon: CheckCircle2,
     action: "go-tasks",
     category: "Navigation",
+    requiresAnyPermission: [TASK_VIEW, TASK_VIEW_ALL],
   },
   {
     label: "Go to Projects",
     icon: FolderKanban,
     action: "go-projects",
     category: "Navigation",
+    requiresAnyPermission: [PROJECT_VIEW, PROJECT_VIEW_ALL],
   },
   {
     label: "Go to Sprints",
     icon: Trophy,
     action: "go-sprints",
     category: "Navigation",
+    requiresPermission: WORKFLOW_MANAGE,
   },
   {
     label: "Go to Analytics",
     icon: BarChart3,
     action: "go-analytics",
     category: "Navigation",
+    requiresPermission: DASHBOARD_VIEW,
   },
   {
     label: "Go to Calendar",
     icon: Calendar,
     action: "go-calendar",
     category: "Navigation",
+    requiresAnyPermission: [TASK_VIEW, TASK_VIEW_ALL],
   },
   {
     label: "Go to Settings",
     icon: Settings2,
     action: "go-settings",
     category: "Navigation",
+    requiresAdmin: true,
   },
 ];
 export default function CommandPalette({ onCreateTask, onCreateProject }) {
@@ -127,6 +149,47 @@ export default function CommandPalette({ onCreateTask, onCreateProject }) {
   const listRef = useRef(null);
   const navigate = useNavigate();
   const { workspace } = useWorkspace();
+  const { user, globalRoles } = useAuth();
+  const {
+    hasPermission,
+    hasAnyPermission,
+    hasRole,
+    hasAnyRole,
+    hasMinRoleLevel,
+    isAdmin,
+    isSuperAdmin,
+  } = usePermission();
+
+  const accessContext = useMemo(
+    () => ({
+      hasPermission,
+      hasAnyPermission,
+      hasRole,
+      hasAnyRole,
+      hasMinRoleLevel,
+      isAdmin,
+      isSuperAdmin,
+      globalRoles,
+      user,
+    }),
+    [
+      hasPermission,
+      hasAnyPermission,
+      hasRole,
+      hasAnyRole,
+      hasMinRoleLevel,
+      isAdmin,
+      isSuperAdmin,
+      globalRoles,
+      user,
+    ],
+  );
+
+  const allowedQuickActions = useMemo(
+    () => filterByAccess(QUICK_ACTIONS, accessContext),
+    [accessContext],
+  );
+
   const allHits = useMemo(() => {
     if (!results) return [];
     return [
@@ -140,14 +203,14 @@ export default function CommandPalette({ onCreateTask, onCreateProject }) {
     ];
   }, [results]);
   const filteredActions = useMemo(() => {
-    if (!query.trim()) return QUICK_ACTIONS;
+    if (!query.trim()) return allowedQuickActions;
     const q = query.toLowerCase();
-    return QUICK_ACTIONS.filter(
+    return allowedQuickActions.filter(
       (a) =>
         a.label.toLowerCase().includes(q) ||
         a.category.toLowerCase().includes(q),
     );
-  }, [query]);
+  }, [query, allowedQuickActions]);
   const totalItems = useMemo(() => {
     return (
       allHits.length +

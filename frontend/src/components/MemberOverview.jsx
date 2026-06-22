@@ -1,5 +1,5 @@
 import { Users, PieChart } from "lucide-react";
-import RoleBadge from "../components/members/RoleBadge.jsx";
+import RoleBadge from "../features/projects/components/members/RoleBadge.jsx";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { cn } from "../utils/cn.js";

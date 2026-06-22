@@ -5,7 +5,7 @@ import com.vinncorp.erp.modules.projects.enums.NotificationType;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import com.vinncorp.erp.core.user.entity.UserSummary;
+import com.vinncorp.erp.platform.user.entity.UserSummary;
 
 @Data
 public class NotificationResponse {

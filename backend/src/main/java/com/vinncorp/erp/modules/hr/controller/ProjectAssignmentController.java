@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.modules.hr.request.ProjectAssignmentRequest;
-import com.vinncorp.erp.modules.hr.response.ProjectAssignmentResponse;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.modules.hr.dto.request.ProjectAssignmentRequest;
+import com.vinncorp.erp.modules.hr.dto.response.ProjectAssignmentResponse;
 import com.vinncorp.erp.modules.hr.service.ProjectAssignmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

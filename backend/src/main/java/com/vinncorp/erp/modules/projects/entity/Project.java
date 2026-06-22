@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
 
 import com.vinncorp.erp.modules.projects.enums.ProjectPriority;
 import jakarta.persistence.*;
@@ -12,8 +12,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
 
 @EqualsAndHashCode(callSuper = true)
 @Data

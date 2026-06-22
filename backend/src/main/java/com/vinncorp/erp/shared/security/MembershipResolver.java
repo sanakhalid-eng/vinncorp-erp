@@ -1,6 +1,6 @@
 package com.vinncorp.erp.shared.security;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 
 public interface MembershipResolver {
 

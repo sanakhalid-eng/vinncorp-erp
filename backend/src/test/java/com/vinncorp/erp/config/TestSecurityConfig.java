@@ -1,10 +1,12 @@
 package com.vinncorp.erp.config;
 
 import com.vinncorp.erp.shared.security.JwtAuthFilter;
+import com.vinncorp.erp.shared.security.JwtKeyProvider;
 import com.vinncorp.erp.shared.security.JwtUtil;
 import com.vinncorp.erp.shared.security.OAuth2SuccessHandler;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
@@ -12,6 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @TestConfiguration
+@Import(TestJwtKeyProvider.class)
 public class TestSecurityConfig {
 
     @Bean

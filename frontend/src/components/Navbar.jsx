@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth.js";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../features/settings/components/ThemeToggle";
 import Logo from "../assets/Logo - PMT-SK.png";
 import { User, ChevronDown, LogOut, Activity, Settings } from "lucide-react";
 const getUserAvatar = (user) => {

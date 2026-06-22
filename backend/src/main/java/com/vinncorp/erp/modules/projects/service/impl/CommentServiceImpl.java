@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.user.entity.UserSummary;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.entity.UserSummary;
 import com.vinncorp.erp.modules.projects.dto.request.CommentRequest;
 import com.vinncorp.erp.modules.projects.dto.request.ReactionRequest;
 import com.vinncorp.erp.modules.projects.dto.response.CommentResponse;

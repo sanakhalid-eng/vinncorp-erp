@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.ProjectAssignmentRequest;
-import com.vinncorp.erp.modules.hr.response.ProjectAssignmentResponse;
+import com.vinncorp.erp.modules.hr.dto.request.ProjectAssignmentRequest;
+import com.vinncorp.erp.modules.hr.dto.response.ProjectAssignmentResponse;
 
 import java.util.List;
 

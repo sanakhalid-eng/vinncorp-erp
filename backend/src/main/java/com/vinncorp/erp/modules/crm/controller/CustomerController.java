@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.crm.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import com.vinncorp.erp.modules.crm.dto.CustomerSummary;
 import com.vinncorp.erp.modules.crm.entity.Contact;
 import com.vinncorp.erp.modules.crm.entity.Customer;

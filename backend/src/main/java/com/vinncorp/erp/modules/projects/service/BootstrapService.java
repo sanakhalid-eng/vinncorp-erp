@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.projects.service;
 
-import com.vinncorp.erp.core.user.entity.UserRole;
-import com.vinncorp.erp.core.user.entity.WorkspaceUserRole;
-import com.vinncorp.erp.core.workspace.entity.WorkspaceMember;
+import com.vinncorp.erp.platform.user.entity.UserRole;
+import com.vinncorp.erp.platform.user.entity.WorkspaceUserRole;
+import com.vinncorp.erp.platform.workspace.entity.WorkspaceMember;
 import com.vinncorp.erp.modules.projects.entity.BootstrapLock;
 import com.vinncorp.erp.modules.projects.entity.Role;
 import com.vinncorp.erp.modules.projects.repository.BootstrapLockRepository;
@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import com.vinncorp.erp.core.user.repository.RoleRepository;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.user.repository.WorkspaceUserRoleRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceMemberRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.user.repository.RoleRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.WorkspaceUserRoleRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceMemberRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 
 @Service
 @RequiredArgsConstructor

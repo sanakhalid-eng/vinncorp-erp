@@ -1,14 +1,14 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.entity.Permission;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.PermissionRepository;
+import com.vinncorp.erp.platform.user.entity.Permission;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.PermissionRepository;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.user.repository.RoleRepository;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.user.repository.UserRoleRepository;
-import com.vinncorp.erp.core.user.service.RoleService;
+import com.vinncorp.erp.platform.user.repository.RoleRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRoleRepository;
+import com.vinncorp.erp.platform.user.service.RoleService;
 import com.vinncorp.erp.modules.projects.entity.Role;
 import com.vinncorp.erp.modules.projects.enums.ActionType;
 import com.vinncorp.erp.modules.projects.enums.EntityType;

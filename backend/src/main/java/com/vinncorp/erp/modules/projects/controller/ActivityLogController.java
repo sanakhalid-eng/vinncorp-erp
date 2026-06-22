@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.dto.response.ActivityLogResponse;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.modules.projects.dto.response.PaginatedResponse;
@@ -9,8 +9,8 @@ import com.vinncorp.erp.modules.projects.enums.EntityType;
 import com.vinncorp.erp.modules.projects.repository.ActivityLogRepository;
 import com.vinncorp.erp.modules.projects.service.ActivityLogService;
 import com.vinncorp.erp.shared.mapper.PaginationMapper;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

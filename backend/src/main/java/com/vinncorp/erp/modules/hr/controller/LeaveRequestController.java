@@ -1,11 +1,11 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import com.vinncorp.erp.modules.hr.enums.LeaveRequestStatus;
-import com.vinncorp.erp.modules.hr.request.LeaveRequestActionRequest;
-import com.vinncorp.erp.modules.hr.request.LeaveRequestCreateRequest;
-import com.vinncorp.erp.modules.hr.response.LeaveRequestResponse;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveRequestActionRequest;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveRequestCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.LeaveRequestResponse;
 import com.vinncorp.erp.modules.hr.service.LeaveRequestService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

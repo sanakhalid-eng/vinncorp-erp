@@ -1,27 +1,25 @@
 package com.vinncorp.erp.shared.security;
 
-import com.vinncorp.erp.core.user.entity.Permission;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.entity.UserRole;
-import com.vinncorp.erp.core.user.entity.UserGlobalRole;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.user.repository.UserGlobalRoleRepository;
+import com.vinncorp.erp.platform.user.entity.Permission;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.UserRole;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserGlobalRoleRepository;
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.nio.charset.StandardCharsets;
-import java.security.Key;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class JwtUtil {
 
-    @Value("${jwt.secret}")
-    private String secret;
+    private final PrivateKey privateKey;
+    private final PublicKey publicKey;
 
     @Value("${jwt.expiration}")
     private long expiration;
@@ -32,26 +30,18 @@ public class JwtUtil {
     @Autowired
     private UserGlobalRoleRepository userGlobalRoleRepository;
 
-    // Safe key generation
-    private Key getSigningKey() {
-        byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);
-
-        if (keyBytes.length < 32) {
-            throw new RuntimeException("JWT secret must be at least 32 characters long");
-        }
-
-        return Keys.hmacShaKeyFor(keyBytes);
+    public JwtUtil(JwtKeyProvider keyProvider) {
+        this.privateKey = keyProvider.getPrivateKey();
+        this.publicKey = keyProvider.getPublicKey();
     }
 
-    // Central parser
     private JwtParser getParser() {
         return Jwts.parserBuilder()
-                .setSigningKey(getSigningKey())
+                .setSigningKey(publicKey)
                 .setAllowedClockSkewSeconds(60)
                 .build();
     }
 
-    // Generate token (legacy: uses global user_roles)
     public String generateToken(User user) {
         return generateToken(user, null, null);
     }
@@ -78,14 +68,10 @@ public class JwtUtil {
                 .setSubject(userWithRoles.getEmail())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .signWith(privateKey, SignatureAlgorithm.RS256)
                 .compact();
     }
 
-    /**
-     * Generate a token with workspace-specific permissions and roles.
-     * This is the primary method for workspace-scoped RBAC.
-     */
     public String generateTokenWithWorkspacePermissions(
             User user, Long workspaceId, String workspaceSlug,
             List<String> workspacePermissions, List<String> workspaceRoles) {
@@ -93,7 +79,6 @@ public class JwtUtil {
         claims.put("permissions", workspacePermissions != null ? workspacePermissions : List.of());
         claims.put("workspaceRoles", workspaceRoles != null ? workspaceRoles : List.of());
 
-        // Add global roles
         List<String> globalRoles = userGlobalRoleRepository.findGlobalRoleNamesByUserId(user.getId());
         claims.put("globalRoles", globalRoles != null ? globalRoles : List.of());
 
@@ -108,36 +93,29 @@ public class JwtUtil {
                 .setSubject(user.getEmail())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
-                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .signWith(privateKey, SignatureAlgorithm.RS256)
                 .compact();
     }
 
-    // Extract email
     public String extractEmail(String token) {
         return extractAllClaims(token).getSubject();
     }
 
-    // Extract claims
     public Claims extractAllClaims(String token) {
         return getParser()
                 .parseClaimsJws(token)
                 .getBody();
     }
 
-    // Extract permissions safely
     public List<String> extractPermissions(String token) {
         Claims claims = extractAllClaims(token);
-
         List<?> rawPermissions = claims.get("permissions", List.class);
-
         if (rawPermissions == null) return List.of();
-
         return rawPermissions.stream()
                 .map(Object::toString)
                 .collect(Collectors.toList());
     }
 
-    // Extract workspace roles from JWT
     public List<String> extractWorkspaceRoles(String token) {
         Claims claims = extractAllClaims(token);
         List<?> rawRoles = claims.get("workspaceRoles", List.class);
@@ -147,7 +125,6 @@ public class JwtUtil {
                 .collect(Collectors.toList());
     }
 
-    // Extract global roles from JWT
     public List<String> extractGlobalRoles(String token) {
         Claims claims = extractAllClaims(token);
         List<?> rawRoles = claims.get("globalRoles", List.class);
@@ -157,7 +134,6 @@ public class JwtUtil {
                 .collect(Collectors.toList());
     }
 
-    // Check expiration
     public boolean isTokenExpired(String token) {
         try {
             Date expirationDate = extractAllClaims(token).getExpiration();
@@ -167,7 +143,6 @@ public class JwtUtil {
         }
     }
 
-    // Validate token
     public boolean validateToken(String token) {
         try {
             getParser().parseClaimsJws(token);

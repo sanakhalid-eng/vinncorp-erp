@@ -1,7 +1,7 @@
 package com.vinncorp.erp.integration;
 
 import com.vinncorp.erp.AbstractIntegrationTest;
-import com.vinncorp.erp.core.workspace.request.TransferOwnershipRequest;
+import com.vinncorp.erp.platform.workspace.dto.request.TransferOwnershipRequest;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.CustomAccessDeniedException;

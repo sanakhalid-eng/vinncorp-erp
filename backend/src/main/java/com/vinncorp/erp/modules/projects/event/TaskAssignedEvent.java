@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.event;
 
 import com.vinncorp.erp.modules.projects.entity.Task;
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 

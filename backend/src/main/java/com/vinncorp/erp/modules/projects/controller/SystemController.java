@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.workspace.request.TransferOwnershipRequest;
-import com.vinncorp.erp.core.workspace.response.SystemSettingsResponse;
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.workspace.dto.request.TransferOwnershipRequest;
+import com.vinncorp.erp.platform.workspace.dto.response.SystemSettingsResponse;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.modules.projects.entity.ScheduledJob;
 import com.vinncorp.erp.modules.projects.enums.ActionType;
@@ -14,7 +14,7 @@ import com.vinncorp.erp.modules.projects.service.*;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.CustomAccessDeniedException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.shared.security.WorkspaceOwnerSecurity;
 import com.vinncorp.erp.shared.websocket.NotificationWebSocketHandler;
 import io.swagger.v3.oas.annotations.Operation;

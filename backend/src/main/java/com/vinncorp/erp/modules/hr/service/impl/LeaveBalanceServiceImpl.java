@@ -1,15 +1,15 @@
 package com.vinncorp.erp.modules.hr.service.impl;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import com.vinncorp.erp.modules.hr.entity.Employee;
 import com.vinncorp.erp.modules.hr.entity.HrLeaveBalance;
 import com.vinncorp.erp.modules.hr.entity.HrLeaveType;
 import com.vinncorp.erp.modules.hr.repository.EmployeeRepository;
 import com.vinncorp.erp.modules.hr.repository.HrLeaveBalanceRepository;
 import com.vinncorp.erp.modules.hr.repository.HrLeaveTypeRepository;
-import com.vinncorp.erp.modules.hr.request.LeaveBalanceSeedRequest;
-import com.vinncorp.erp.modules.hr.response.LeaveBalanceResponse;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveBalanceSeedRequest;
+import com.vinncorp.erp.modules.hr.dto.response.LeaveBalanceResponse;
 import com.vinncorp.erp.modules.hr.service.LeaveBalanceService;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;

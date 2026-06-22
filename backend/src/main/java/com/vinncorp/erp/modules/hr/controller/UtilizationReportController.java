@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.modules.hr.response.EmployeeUtilizationResponse;
-import com.vinncorp.erp.modules.hr.response.UtilizationSummaryResponse;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.modules.hr.dto.response.EmployeeUtilizationResponse;
+import com.vinncorp.erp.modules.hr.dto.response.UtilizationSummaryResponse;
 import com.vinncorp.erp.modules.hr.service.UtilizationReportService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

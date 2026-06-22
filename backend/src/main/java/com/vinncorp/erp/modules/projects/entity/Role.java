@@ -1,14 +1,13 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.user.entity.Permission;
-
 import com.vinncorp.erp.modules.projects.enums.RoleScope;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.user.entity.Permission;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
 
 @Entity
 @Table(name = "roles")
@@ -46,8 +45,6 @@ public class Role extends BaseAuditableEntity {
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
     private Set<Permission> permissions = new HashSet<>();
-
-
 }
 
 

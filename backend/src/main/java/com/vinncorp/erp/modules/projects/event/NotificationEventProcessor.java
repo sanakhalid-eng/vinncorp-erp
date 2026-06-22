@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.event;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.modules.projects.enums.NotificationType;
 import com.vinncorp.erp.modules.projects.service.NotificationService;
 import com.vinncorp.erp.shared.websocket.WebSocketEventDispatcher;

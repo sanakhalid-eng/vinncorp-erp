@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.LeaveTypeCreateRequest;
-import com.vinncorp.erp.modules.hr.response.LeaveTypeResponse;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveTypeCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.LeaveTypeResponse;
 
 import java.util.List;
 

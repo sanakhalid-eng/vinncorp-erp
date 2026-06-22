@@ -9,9 +9,9 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import java.time.LocalDateTime;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity

@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.modules.hr.request.HolidayCreateRequest;
-import com.vinncorp.erp.modules.hr.response.HolidayResponse;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.modules.hr.dto.request.HolidayCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.HolidayResponse;
 import com.vinncorp.erp.modules.hr.service.HolidayService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

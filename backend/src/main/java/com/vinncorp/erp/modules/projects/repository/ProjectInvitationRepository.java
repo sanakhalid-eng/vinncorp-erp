@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.repository;
 
-import com.vinncorp.erp.core.workspace.enums.InvitationStatus;
+import com.vinncorp.erp.platform.workspace.enums.InvitationStatus;
 import com.vinncorp.erp.modules.projects.entity.ProjectInvitation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

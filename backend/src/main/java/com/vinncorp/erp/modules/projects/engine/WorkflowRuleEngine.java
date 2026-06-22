@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.engine;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.modules.projects.entity.Task;
 import com.vinncorp.erp.modules.projects.repository.ProjectMemberRepository;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;

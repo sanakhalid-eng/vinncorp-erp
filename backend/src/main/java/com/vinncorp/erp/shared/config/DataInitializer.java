@@ -1,17 +1,17 @@
 package com.vinncorp.erp.shared.config;
 
-import com.vinncorp.erp.core.user.repository.RoleRepository;
-import com.vinncorp.erp.core.user.repository.PermissionRepository;
-import com.vinncorp.erp.core.user.repository.GlobalRoleRepository;
-import com.vinncorp.erp.core.user.repository.UserGlobalRoleRepository;
-import com.vinncorp.erp.core.user.constants.PermissionConstants;
-import com.vinncorp.erp.core.user.entity.Permission;
-import com.vinncorp.erp.core.user.entity.GlobalRole;
-import com.vinncorp.erp.core.user.entity.UserGlobalRole;
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.RoleRepository;
+import com.vinncorp.erp.platform.user.repository.PermissionRepository;
+import com.vinncorp.erp.platform.user.repository.GlobalRoleRepository;
+import com.vinncorp.erp.platform.user.repository.UserGlobalRoleRepository;
+import com.vinncorp.erp.platform.user.constants.PermissionConstants;
+import com.vinncorp.erp.platform.user.entity.Permission;
+import com.vinncorp.erp.platform.user.entity.GlobalRole;
+import com.vinncorp.erp.platform.user.entity.UserGlobalRole;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.modules.projects.repository.ProjectRoleRepository;
-import com.vinncorp.erp.core.user.repository.RolePermissionRepository;
+import com.vinncorp.erp.platform.user.repository.RolePermissionRepository;
 import com.vinncorp.erp.modules.projects.repository.ProjectMemberRepository;
 
 import com.vinncorp.erp.modules.projects.entity.*;
@@ -237,19 +237,19 @@ public class DataInitializer implements CommandLineRunner {
             r.setScope(RoleScope.PROJECT);
             return roleRepository.save(r);
         });
-        pmLegacy.setPermissions(new HashSet<>(List.of(
-            permMap.get(PermissionConstants.VIEW_TASK),
-            permMap.get(PermissionConstants.CREATE_TASK),
-            permMap.get(PermissionConstants.EDIT_TASK),
-            permMap.get(PermissionConstants.DELETE_TASK),
-            permMap.get(PermissionConstants.MOVE_TASK),
-            permMap.get(PermissionConstants.ASSIGN_TASK),
-            permMap.get(PermissionConstants.ADD_MEMBER),
-            permMap.get(PermissionConstants.REMOVE_MEMBER),
-            permMap.get(PermissionConstants.CREATE_LABEL),
-            permMap.get(PermissionConstants.DELETE_LABEL),
-            permMap.get(PermissionConstants.ASSIGN_LABEL)
-        )));
+        Set<Permission> legacyPerms = new HashSet<>();
+        for (String name : List.of(
+            PermissionConstants.VIEW_TASK, PermissionConstants.CREATE_TASK,
+            PermissionConstants.EDIT_TASK, PermissionConstants.DELETE_TASK,
+            PermissionConstants.MOVE_TASK, PermissionConstants.ASSIGN_TASK,
+            PermissionConstants.ADD_MEMBER, PermissionConstants.REMOVE_MEMBER,
+            PermissionConstants.CREATE_LABEL, PermissionConstants.DELETE_LABEL,
+            PermissionConstants.ASSIGN_LABEL
+        )) {
+            Permission p = permMap.get(name);
+            if (p != null) legacyPerms.add(p);
+        }
+        pmLegacy.setPermissions(legacyPerms);
         roleRepository.save(pmLegacy);
 
         Role tmLegacy = roleRepository.findByName(PermissionConstants.TEAM_MEMBER).orElseGet(() -> {

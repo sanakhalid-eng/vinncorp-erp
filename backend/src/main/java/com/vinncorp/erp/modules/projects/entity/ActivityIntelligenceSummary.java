@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import com.vinncorp.erp.core.audit.BaseTenantEntity;
+import com.vinncorp.erp.platform.audit.BaseTenantEntity;
 
 @Entity
 @Table(name = "activity_intelligence_summaries", indexes = {

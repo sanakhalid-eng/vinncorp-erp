@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.HolidayCreateRequest;
-import com.vinncorp.erp.modules.hr.response.HolidayResponse;
+import com.vinncorp.erp.modules.hr.dto.request.HolidayCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.HolidayResponse;
 
 import java.time.LocalDate;
 import java.util.List;

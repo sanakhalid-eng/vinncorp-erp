@@ -1,11 +1,11 @@
 package com.vinncorp.erp.shared.security;
 
-import com.vinncorp.erp.core.user.constants.PermissionConstants;
+import com.vinncorp.erp.platform.user.constants.PermissionConstants;
 import com.vinncorp.erp.modules.projects.entity.Task;
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
