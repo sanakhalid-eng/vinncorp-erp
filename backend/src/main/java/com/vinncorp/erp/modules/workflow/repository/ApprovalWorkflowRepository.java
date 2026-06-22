@@ -1,0 +1,8 @@
+package com.vinncorp.erp.modules.workflow.repository;
+import com.vinncorp.erp.modules.workflow.entity.ApprovalWorkflow;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+public interface ApprovalWorkflowRepository extends JpaRepository<ApprovalWorkflow, Long> {
+List<ApprovalWorkflow> findByWorkspaceIdAndIsActiveTrue(Long workspaceId);
+} 
