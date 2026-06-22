@@ -4,7 +4,7 @@ import { useAuth } from "../context/useAuth.js";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import FeaturesSection from "../components/FeaturesSection";
-import StatsSection from "../components/StatsSection";
+import StatsSection from "../features/analytics/components/StatsSection";
 import Footer from "../components/Footer";
 import { Sparkles, BarChart3, MessageSquare, ArrowRight } from "lucide-react";
 const pageLinks = [

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback } from "react";
-import { getMyPermissions } from "../api/permissionApi";
+import { getMyPermissions } from "../features/settings/api/permissionApi";
 const ProjectPermissionContext = createContext();
 export const ProjectPermissionProvider = ({ children }) => {
   const [projectId, setProjectId] = useState(null);

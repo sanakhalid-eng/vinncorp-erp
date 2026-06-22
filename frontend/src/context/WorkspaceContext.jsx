@@ -10,7 +10,7 @@ import {
   getWorkspace,
   getWorkspaces,
   getWorkspaceBySlug,
-} from "../api/workspaceApi";
+} from "../features/settings/api/workspaceApi";
 const WorkspaceContext = createContext(null);
 export function WorkspaceProvider({ children }) {
   const [workspace, setWorkspace] = useState(null);

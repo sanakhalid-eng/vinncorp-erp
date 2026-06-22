@@ -2,6 +2,8 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { X } from "lucide-react";
 import { clsx } from "clsx";
+import { useIsMobile } from "../../hooks/useBreakpoint";
+
 export default function Modal({
   open,
   onClose,
@@ -13,6 +15,7 @@ export default function Modal({
   closeOnOverlay = true,
   className = "",
 }) {
+  const isMobile = useIsMobile();
   const sizeClasses = {
     sm: "max-w-sm",
     md: "max-w-lg",
@@ -46,7 +49,10 @@ export default function Modal({
         </Transition.Child> 
         <div className="fixed inset-0 z-50 overflow-y-auto">
            
-          <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-6">
+          <div className={clsx(
+            "flex min-h-full text-center",
+            isMobile ? "items-end p-0" : "items-center justify-center p-4 sm:p-6",
+          )}>
              
             <Transition.Child
               as={Fragment}
@@ -60,8 +66,10 @@ export default function Modal({
                
               <Dialog.Panel
                 className={clsx(
-                  "w-full transform overflow-hidden rounded-2xl bg-white dark:bg-surface-900 text-left shadow-soft-lg border border-surface-200/50 dark:border-surface-800/50 transition-all",
-                  sizeClasses[size],
+                  "w-full transform overflow-hidden bg-white dark:bg-surface-900 text-left shadow-soft-lg border border-surface-200/50 dark:border-surface-800/50 transition-all",
+                  isMobile
+                    ? "rounded-t-2xl max-h-[92vh] min-h-[50vh]"
+                    : clsx("rounded-2xl", sizeClasses[size]),
                   className,
                 )}
               >
