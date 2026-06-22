@@ -1,4 +1,4 @@
-import NotificationDropdown from "../components/notifications/NotificationDropdown";
+import NotificationDropdown from "../features/notifications/components/notifications/NotificationDropdown";
 function AppLayout({ children }) {
   return (
     <div className="min-w-0 flex-1 overflow-auto lg:max-h-screen">

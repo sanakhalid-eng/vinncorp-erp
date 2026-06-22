@@ -40,12 +40,39 @@ import {
   Contact,
   GitBranch,
   Target,
+  DollarSign,
+  Receipt,
+  CreditCard,
+  Wallet,
+  ClipboardCheck,
 } from "lucide-react";
 import { useAuth } from "../context/useAuth.js";
 import { usePermission } from "../context/usePermission.js";
-import { DASHBOARD_VIEW, MEMBER_VIEW, USER_VIEW, CRM_VIEW } from "../constants/permissions.js";
+import {
+  DASHBOARD_VIEW,
+  MEMBER_VIEW,
+  USER_VIEW,
+  ROLE_VIEW,
+  CRM_VIEW,
+  LEAD_VIEW,
+  CUSTOMER_VIEW,
+  CONTACT_VIEW,
+  DEAL_VIEW,
+  PIPELINE_VIEW,
+  EMPLOYEE_VIEW,
+  DEPARTMENT_VIEW,
+  DESIGNATION_VIEW,
+  FINANCE_VIEW,
+  PROJECT_VIEW,
+  PROJECT_VIEW_ALL,
+  TASK_VIEW,
+  TASK_VIEW_ALL,
+  WORKFLOW_MANAGE,
+  TIMESHEET_APPROVE,
+} from "../constants/permissions.js";
+import { filterByAccess } from "../utils/accessControl.js";
 import { useWorkspace } from "../context/WorkspaceContext";
-import WorkspaceSwitcher from "./WorkspaceSwitcher";
+import WorkspaceSwitcher from "../features/settings/components/WorkspaceSwitcher";
 import { useIsDesktop } from "../hooks/useBreakpoint";
 const getInitials = (name) => (name ? name.charAt(0).toUpperCase() : "U");
 const PROJECT_PATH_REGEX = /\/projects\/(\d+)/;
@@ -78,6 +105,17 @@ function SidebarContent({
   const location = useLocation();
   const { user, logout, globalRoles } = useAuth();
   const permission = usePermission();
+  const accessContext = {
+    hasPermission: permission.hasPermission,
+    hasAnyPermission: permission.hasAnyPermission,
+    hasRole: permission.hasRole,
+    hasAnyRole: permission.hasAnyRole,
+    hasMinRoleLevel: permission.hasMinRoleLevel,
+    isAdmin: permission.isAdmin,
+    isSuperAdmin: permission.isSuperAdmin,
+    globalRoles,
+    user,
+  };
   const { workspace, workspaces } = useWorkspace();
   const [hovered, setHovered] = useState(false);
   const currentProjectId = useMemo(() => {
@@ -95,150 +133,217 @@ function SidebarContent({
           .join(" ")
       : "Workspace Member";
   }, [user?.roles]);
-  const wsNavItems = [
-    {
-      name: "Dashboard",
-      path: `/w/${workspaceSlug}/dashboard`,
-      icon: LayoutGrid,
-      hint: "Overview",
-      requiresPermission: DASHBOARD_VIEW,
-    },
-    {
-      name: "Projects",
-      path: `/w/${workspaceSlug}/projects`,
-      icon: FolderKanban,
-      hint: "Delivery",
-    },
-    {
-      name: "Tasks",
-      path: `/w/${workspaceSlug}/tasks`,
-      icon: CheckCircle2,
-      hint: "Execution",
-    },
-    {
-      name: "Gantt",
-      path: `/w/${workspaceSlug}/gantt`,
-      icon: GanttChartSquare,
-      hint: "Timeline",
-    },
-    {
-      name: "Activity",
-      path: `/w/${workspaceSlug}/activity`,
-      icon: Activity,
-      hint: "Feed",
-    },
-    {
-      name: "Automation",
-      path: `/w/${workspaceSlug}/automation-rules`,
-      icon: Zap,
-      hint: "Workflow Rules",
-    },
-    {
-      name: "Analytics",
-      path: `/w/${workspaceSlug}/analytics`,
-      icon: BarChart3,
-      hint: "Insights",
-    },
-    {
-      name: "Executive",
-      path: `/w/${workspaceSlug}/insights`,
-      icon: LineChart,
-      hint: "Leadership",
-    },
-    {
-      name: "Knowledge",
-      path: `/w/${workspaceSlug}/knowledge`,
-      icon: BookOpen,
-      hint: "Docs",
-    },
-    {
-      name: "Notes",
-      path: `/w/${workspaceSlug}/notes`,
-      icon: StickyNote,
-      hint: "Wiki",
-    },
-    {
-      name: "Members",
-      path: `/w/${workspaceSlug}/members`,
-      icon: Users,
-      hint: "People",
-      requiresPermission: MEMBER_VIEW,
-    },
-    {
-      name: "Employees",
-      path: `/w/${workspaceSlug}/hr/employees`,
-      icon: Briefcase,
-      hint: "HR",
-      requiresPermission: "EMPLOYEE_VIEW",
-    },
-    {
-      name: "Departments",
-      path: `/w/${workspaceSlug}/hr/departments`,
-      icon: Building2,
-      hint: "Org Structure",
-      requiresPermission: "DEPARTMENT_VIEW",
-    },
-    {
-      name: "Designations",
-      path: `/w/${workspaceSlug}/hr/designations`,
-      icon: Shield,
-      hint: "Job Levels",
-      requiresPermission: "DESIGNATION_VIEW",
-    },
-    {
-      name: "CRM Dashboard",
-      path: `/w/${workspaceSlug}/crm`,
-      icon: Target,
-      hint: "CRM",
-      requiresPermission: CRM_VIEW,
-    },
-    {
-      name: "Leads",
-      path: `/w/${workspaceSlug}/crm/leads`,
-      icon: Phone,
-      hint: "Prospects",
-      requiresPermission: "LEAD_VIEW",
-    },
-    {
-      name: "Customers",
-      path: `/w/${workspaceSlug}/crm/customers`,
-      icon: UsersRound,
-      hint: "Clients",
-      requiresPermission: "CUSTOMER_VIEW",
-    },
-    {
-      name: "Contacts",
-      path: `/w/${workspaceSlug}/crm/contacts`,
-      icon: Contact,
-      hint: "People",
-      requiresPermission: "CONTACT_VIEW",
-    },
-    {
-      name: "Opportunities",
-      path: `/w/${workspaceSlug}/crm/opportunities`,
-      icon: Briefcase,
-      hint: "Deals",
-      requiresPermission: "DEAL_VIEW",
-    },
-    {
-      name: "Pipeline",
-      path: `/w/${workspaceSlug}/crm/pipeline`,
-      icon: GitBranch,
-      hint: "Sales",
-      requiresPermission: "PIPELINE_VIEW",
-    },
-    {
-      name: "Settings",
-      path: `/w/${workspaceSlug}/settings`,
-      icon: Settings2,
-      hint: "Configuration",
-      requiresAdmin: true,
-    },
-  ].filter((item) => {
-    if (item.requiresAdmin && !(permission.isAdmin?.() || user?.workspaceOwner)) return false;
-    if (item.requiresPermission && !permission.hasPermission?.(item.requiresPermission)) return false;
-    return true;
-  });
+  const wsNavItems = filterByAccess(
+    [
+      {
+        name: "Dashboard",
+        path: `/w/${workspaceSlug}/dashboard`,
+        icon: LayoutGrid,
+        hint: "Overview",
+        requiresPermission: DASHBOARD_VIEW,
+      },
+      {
+        name: "Projects",
+        path: `/w/${workspaceSlug}/projects`,
+        icon: FolderKanban,
+        hint: "Delivery",
+        requiresAnyPermission: [PROJECT_VIEW, PROJECT_VIEW_ALL],
+      },
+      {
+        name: "Tasks",
+        path: `/w/${workspaceSlug}/tasks`,
+        icon: CheckCircle2,
+        hint: "Execution",
+        requiresAnyPermission: [TASK_VIEW, TASK_VIEW_ALL],
+      },
+      {
+        name: "Gantt",
+        path: `/w/${workspaceSlug}/gantt`,
+        icon: GanttChartSquare,
+        hint: "Timeline",
+        requiresAnyPermission: [TASK_VIEW, TASK_VIEW_ALL],
+      },
+      {
+        name: "Activity",
+        path: `/w/${workspaceSlug}/activity`,
+        icon: Activity,
+        hint: "Feed",
+      },
+      {
+        name: "Automation",
+        path: `/w/${workspaceSlug}/automation-rules`,
+        icon: Zap,
+        hint: "Workflow Rules",
+        requiresPermission: WORKFLOW_MANAGE,
+      },
+      {
+        name: "Analytics",
+        path: `/w/${workspaceSlug}/analytics`,
+        icon: BarChart3,
+        hint: "Insights",
+        requiresPermission: DASHBOARD_VIEW,
+      },
+      {
+        name: "Executive",
+        path: `/w/${workspaceSlug}/insights`,
+        icon: LineChart,
+        hint: "Leadership",
+        requiresPermission: DASHBOARD_VIEW,
+      },
+      {
+        name: "Knowledge",
+        path: `/w/${workspaceSlug}/knowledge`,
+        icon: BookOpen,
+        hint: "Docs",
+      },
+      {
+        name: "Notes",
+        path: `/w/${workspaceSlug}/notes`,
+        icon: StickyNote,
+        hint: "Wiki",
+      },
+      {
+        name: "Members",
+        path: `/w/${workspaceSlug}/members`,
+        icon: Users,
+        hint: "People",
+        requiresPermission: MEMBER_VIEW,
+      },
+      {
+        name: "Employees",
+        path: `/w/${workspaceSlug}/hr/employees`,
+        icon: Briefcase,
+        hint: "HR",
+        requiresPermission: EMPLOYEE_VIEW,
+      },
+      {
+        name: "Departments",
+        path: `/w/${workspaceSlug}/hr/departments`,
+        icon: Building2,
+        hint: "Org Structure",
+        requiresPermission: DEPARTMENT_VIEW,
+      },
+      {
+        name: "Designations",
+        path: `/w/${workspaceSlug}/hr/designations`,
+        icon: Shield,
+        hint: "Job Levels",
+        requiresPermission: DESIGNATION_VIEW,
+      },
+      {
+        name: "CRM Dashboard",
+        path: `/w/${workspaceSlug}/crm`,
+        icon: Target,
+        hint: "CRM",
+        requiresPermission: CRM_VIEW,
+      },
+      {
+        name: "Leads",
+        path: `/w/${workspaceSlug}/crm/leads`,
+        icon: Phone,
+        hint: "Prospects",
+        requiresPermission: LEAD_VIEW,
+      },
+      {
+        name: "Customers",
+        path: `/w/${workspaceSlug}/crm/customers`,
+        icon: UsersRound,
+        hint: "Clients",
+        requiresPermission: CUSTOMER_VIEW,
+      },
+      {
+        name: "Contacts",
+        path: `/w/${workspaceSlug}/crm/contacts`,
+        icon: Contact,
+        hint: "People",
+        requiresPermission: CONTACT_VIEW,
+      },
+      {
+        name: "Opportunities",
+        path: `/w/${workspaceSlug}/crm/opportunities`,
+        icon: Briefcase,
+        hint: "Deals",
+        requiresPermission: DEAL_VIEW,
+      },
+      {
+        name: "Pipeline",
+        path: `/w/${workspaceSlug}/crm/pipeline`,
+        icon: GitBranch,
+        hint: "Sales",
+        requiresPermission: PIPELINE_VIEW,
+      },
+      {
+        name: "Finance",
+        path: `/w/${workspaceSlug}/finance`,
+        icon: DollarSign,
+        hint: "Overview",
+        requiresPermission: FINANCE_VIEW,
+      },
+      {
+        name: "Invoices",
+        path: `/w/${workspaceSlug}/finance/invoices`,
+        icon: Receipt,
+        hint: "Billing",
+        requiresPermission: FINANCE_VIEW,
+      },
+      {
+        name: "Payments",
+        path: `/w/${workspaceSlug}/finance/payments`,
+        icon: CreditCard,
+        hint: "Collections",
+        requiresPermission: FINANCE_VIEW,
+      },
+      {
+        name: "Expenses",
+        path: `/w/${workspaceSlug}/finance/expenses`,
+        icon: Wallet,
+        hint: "Spend",
+        requiresPermission: FINANCE_VIEW,
+      },
+      {
+        name: "Settings",
+        path: `/w/${workspaceSlug}/settings`,
+        icon: Settings2,
+        hint: "Configuration",
+        requiresAdmin: true,
+      },
+    ],
+    accessContext,
+  );
+
+  const adminNavItems = filterByAccess(
+    [
+      {
+        name: "Users",
+        path: `/w/${workspaceSlug}/users`,
+        icon: Users,
+        hint: "Accounts",
+        requiresPermission: USER_VIEW,
+      },
+      {
+        name: "Roles",
+        path: `/w/${workspaceSlug}/roles`,
+        icon: Shield,
+        hint: "Access",
+        requiresPermission: ROLE_VIEW,
+      },
+      {
+        name: "Audit Logs",
+        path: `/w/${workspaceSlug}/audit-logs`,
+        icon: ClipboardList,
+        hint: "History",
+        requiresPermission: ROLE_VIEW,
+      },
+      {
+        name: "Timesheet Approvals",
+        path: `/w/${workspaceSlug}/timesheet-approvals`,
+        icon: ClipboardCheck,
+        hint: "Review",
+        requiresPermission: TIMESHEET_APPROVE,
+      },
+    ],
+    accessContext,
+  );
   const effectiveCollapsed = collapsed && !hovered;
   const sidebarWidth = effectiveCollapsed
     ? SIDEBAR_MIN_WIDTH
@@ -525,7 +630,7 @@ function SidebarContent({
             </div>
           </div>
 
-          {permission.hasPermission?.(USER_VIEW) && (
+          {permission.hasPermission?.(EMPLOYEE_VIEW) && (
             <div>
               {!effectiveCollapsed && (
                 <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-slate-400">
@@ -537,6 +642,46 @@ function SidebarContent({
                   { name: "HR Dashboard", path: `/w/${workspaceSlug}/hr/analytics`, icon: BarChart3, hint: "Insights" },
                   { name: "Utilization Report", path: `/w/${workspaceSlug}/hr/utilization`, icon: TrendingUp, hint: "Reports" },
                 ].map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <NavLink
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => {
+                        onNavigate?.();
+                        onClose?.();
+                      }}
+                      className={({ isActive }) =>
+                        `group flex items-center gap-2 rounded-xl px-2 py-2 transition ${effectiveCollapsed ? "justify-center" : ""} ${isActive ? "bg-gradient-to-r from-cyan-500/25 to-indigo-500/25 text-white shadow-lg ring-1 ring-cyan-400/30" : "text-slate-300 hover:bg-white/8 hover:text-white"}`
+                      }
+                    >
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/8 transition group-hover:bg-white/12">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      {!effectiveCollapsed && (
+                        <div className="min-w-0">
+                          <p className="font-medium text-sm">{link.name}</p>
+                          <p className="text-[10px] text-slate-400 group-hover:text-slate-300">
+                            {link.hint}
+                          </p>
+                        </div>
+                      )}
+                    </NavLink>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {adminNavItems.length > 0 && (
+            <div>
+              {!effectiveCollapsed && (
+                <p className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-slate-400">
+                  Administration
+                </p>
+              )}
+              <div className="space-y-1">
+                {adminNavItems.map((link) => {
                   const Icon = link.icon;
                   return (
                     <NavLink

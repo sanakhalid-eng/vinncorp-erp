@@ -23,7 +23,7 @@ export const deleteWorkspaceNote = (id: any) => API.delete(`/notes/${id}`);
 export const getActivityIntelligence = (params: any= {}) =>
   API.get("/activity-intelligence/summary", { params });
 
-// 3A.7 Executive Analytics
+// Executive Analytics
 export const getExecutiveDashboard = () => API.get("/executive/dashboard");
 export const captureExecutiveSnapshot = () => API.post("/executive/snapshots");
 export const getExecutiveTrends = (page: any= 0, size: any= 10) =>
