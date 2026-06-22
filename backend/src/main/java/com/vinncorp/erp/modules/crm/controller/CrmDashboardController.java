@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.crm.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import com.vinncorp.erp.modules.crm.entity.CrmActivity;
 import com.vinncorp.erp.modules.crm.entity.Customer;
 import com.vinncorp.erp.modules.crm.service.CrmActivityService;
@@ -12,7 +12,7 @@ import com.vinncorp.erp.modules.crm.repository.OpportunityRepository;
 import com.vinncorp.erp.modules.crm.service.LeadService;
 import com.vinncorp.erp.modules.crm.service.OpportunityService;
 import com.vinncorp.erp.modules.projects.repository.ProjectRepository;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.vinncorp.erp.modules.crm.events;
+package com.vinncorp.erp.modules.crm.event;
 
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
