@@ -8,8 +8,8 @@ import com.vinncorp.erp.modules.hr.repository.EmployeeRepository;
 import com.vinncorp.erp.modules.hr.repository.HrLeaveBalanceRepository;
 import com.vinncorp.erp.modules.hr.repository.HrLeaveRequestRepository;
 import com.vinncorp.erp.modules.hr.repository.HrLeaveTypeRepository;
-import com.vinncorp.erp.modules.hr.request.LeaveRequestCreateRequest;
-import com.vinncorp.erp.modules.hr.request.LeaveTypeCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveRequestCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveTypeCreateRequest;
 import com.vinncorp.erp.modules.hr.service.LeaveBalanceService;
 import com.vinncorp.erp.modules.hr.service.LeaveRequestService;
 import com.vinncorp.erp.modules.hr.service.LeaveTypeService;
@@ -147,7 +147,7 @@ public class LeaveManagementIntegrationTest extends AbstractIntegrationTest {
                 testWorkspace.getId(), adminUser.getId());
 
         var rejected = leaveRequestService.reject(applied.getId(),
-                com.vinncorp.erp.modules.hr.request.LeaveRequestActionRequest.builder()
+                com.vinncorp.erp.modules.hr.dto.request.LeaveRequestActionRequest.builder()
                         .rejectionReason("Insufficient balance").build(),
                 testWorkspace.getId(), adminUser.getId());
 
@@ -201,7 +201,7 @@ public class LeaveManagementIntegrationTest extends AbstractIntegrationTest {
     @Test
     void testSeedAndGetLeaveBalance() {
         var seeded = leaveBalanceService.seedBalance(
-                com.vinncorp.erp.modules.hr.request.LeaveBalanceSeedRequest.builder()
+                com.vinncorp.erp.modules.hr.dto.request.LeaveBalanceSeedRequest.builder()
                         .employeeId(testEmployee.getId())
                         .leaveTypeId(annualLeaveType.getId())
                         .year(LocalDate.now().getYear())

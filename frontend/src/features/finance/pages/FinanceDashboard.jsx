@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { DollarSign, CreditCard, TrendingUp, FileText, AlertTriangle, Wallet } from "lucide-react";
 import { toast } from "sonner";
 import { getFinanceDashboard } from "../api/financeApi";

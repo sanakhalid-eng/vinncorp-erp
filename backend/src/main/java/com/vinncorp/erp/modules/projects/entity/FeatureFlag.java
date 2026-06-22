@@ -3,7 +3,7 @@ package com.vinncorp.erp.modules.projects.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)

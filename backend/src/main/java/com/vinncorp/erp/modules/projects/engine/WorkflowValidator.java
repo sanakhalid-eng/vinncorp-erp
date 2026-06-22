@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.engine;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.entity.Task;
 import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;
@@ -10,7 +10,7 @@ import com.vinncorp.erp.modules.projects.repository.WorkflowTransitionRuleReposi
 import com.vinncorp.erp.modules.projects.service.PermissionService;
 import com.vinncorp.erp.modules.projects.service.TaskDependencyService;
 import com.vinncorp.erp.shared.exception.BadRequestException;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

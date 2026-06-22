@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
 import com.vinncorp.erp.modules.hr.enums.EmployeeStatus;
-import com.vinncorp.erp.modules.hr.response.EmployeeResponse;
+import com.vinncorp.erp.modules.hr.dto.response.EmployeeResponse;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,9 +1,9 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.modules.hr.request.DepartmentCreateRequest;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.modules.hr.dto.request.DepartmentCreateRequest;
 import com.vinncorp.erp.modules.hr.service.DepartmentService;
-import com.vinncorp.erp.modules.hr.response.DepartmentResponse;
+import com.vinncorp.erp.modules.hr.dto.response.DepartmentResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

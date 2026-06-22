@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;

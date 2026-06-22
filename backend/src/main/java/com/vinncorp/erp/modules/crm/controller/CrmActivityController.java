@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.crm.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import com.vinncorp.erp.modules.crm.entity.CrmActivity;
 import com.vinncorp.erp.modules.crm.service.CrmActivityService;
 import io.swagger.v3.oas.annotations.Operation;

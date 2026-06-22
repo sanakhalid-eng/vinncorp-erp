@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.ShiftCreateRequest;
-import com.vinncorp.erp.modules.hr.response.ShiftResponse;
+import com.vinncorp.erp.modules.hr.dto.request.ShiftCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.ShiftResponse;
 
 import java.util.List;
 

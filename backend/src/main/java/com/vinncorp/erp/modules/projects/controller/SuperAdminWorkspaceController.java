@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceMemberRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceMemberRepository;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

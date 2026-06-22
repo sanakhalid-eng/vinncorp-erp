@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.modules.hr.request.LeaveBalanceSeedRequest;
-import com.vinncorp.erp.modules.hr.response.LeaveBalanceResponse;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveBalanceSeedRequest;
+import com.vinncorp.erp.modules.hr.dto.response.LeaveBalanceResponse;
 import com.vinncorp.erp.modules.hr.service.LeaveBalanceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

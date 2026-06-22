@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.dto.request.WorkflowConditionRequest;
 import com.vinncorp.erp.modules.projects.dto.request.WorkflowRuleRequest;
 import com.vinncorp.erp.modules.projects.dto.response.WorkflowConditionResponse;
@@ -16,7 +16,7 @@ import com.vinncorp.erp.modules.projects.service.WorkflowRuleService;
 import com.vinncorp.erp.shared.cache.CacheNames;
 import com.vinncorp.erp.shared.cache.CacheService;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

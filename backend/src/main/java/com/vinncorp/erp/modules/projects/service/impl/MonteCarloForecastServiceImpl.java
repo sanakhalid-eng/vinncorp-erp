@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 
 import com.vinncorp.erp.modules.projects.dto.response.MonteCarloForecastResponse;
 import com.vinncorp.erp.modules.projects.engine.MonteCarloSimulator;

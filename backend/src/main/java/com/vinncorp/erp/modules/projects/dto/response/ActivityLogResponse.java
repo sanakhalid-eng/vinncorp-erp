@@ -6,7 +6,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.Map;
-import com.vinncorp.erp.core.user.entity.UserSummary;
+import com.vinncorp.erp.platform.user.entity.UserSummary;
 
 @Data
 public class ActivityLogResponse {

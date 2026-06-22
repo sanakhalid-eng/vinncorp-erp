@@ -1,5 +1,5 @@
 package com.vinncorp.erp.modules.projects.mapper;
-import com.vinncorp.erp.core.user.mapper.UserMapper;
+import com.vinncorp.erp.platform.user.mapper.UserMapper;
 import com.vinncorp.erp.modules.projects.dto.response.ProjectMemberResponse;
 import com.vinncorp.erp.modules.projects.dto.response.ProjectResponse;
 import com.vinncorp.erp.modules.projects.entity.Project;

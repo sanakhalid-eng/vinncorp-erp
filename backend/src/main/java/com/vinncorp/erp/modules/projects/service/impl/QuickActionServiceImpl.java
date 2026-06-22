@@ -3,7 +3,7 @@ package com.vinncorp.erp.modules.projects.service.impl;
 import com.vinncorp.erp.modules.projects.dto.response.QuickActionResponse;
 import com.vinncorp.erp.modules.projects.service.QuickActionService;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

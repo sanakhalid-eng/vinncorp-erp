@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 
 import com.vinncorp.erp.modules.projects.dto.response.CycleTimeResponse;
 import com.vinncorp.erp.modules.projects.dto.response.ProductivityResponse;

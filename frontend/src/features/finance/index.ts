@@ -1,4 +1,4 @@
-﻿export * from './api/financeApi';
+export * from './api/financeApi';
 export { default as FinanceDashboard } from './pages/FinanceDashboard';
 export { default as InvoicesPage } from './pages/InvoicesPage';
 export { default as InvoiceDetailPage } from './pages/InvoiceDetailPage';

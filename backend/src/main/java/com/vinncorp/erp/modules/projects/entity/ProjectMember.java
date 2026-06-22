@@ -1,11 +1,11 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.audit.BaseAuditableEntity;
+import com.vinncorp.erp.platform.audit.BaseAuditableEntity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import lombok.EqualsAndHashCode;
 
 

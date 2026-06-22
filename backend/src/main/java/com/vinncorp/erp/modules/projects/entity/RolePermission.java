@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.entity;
 
-import com.vinncorp.erp.core.user.entity.Permission;
+import com.vinncorp.erp.platform.user.entity.Permission;
 
 import jakarta.persistence.*;
 import lombok.*;

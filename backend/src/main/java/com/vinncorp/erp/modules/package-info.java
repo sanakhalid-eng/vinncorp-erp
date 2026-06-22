@@ -10,7 +10,7 @@
  *   <li>{@code finance}   - Invoices, payments, expenses, budgets</li>
  * </ol>
  *
- * <p><b>Dependency rule:</b> modules MAY import from {@code com.vinncorp.erp.core}
+ * <p><b>Dependency rule:</b> modules MAY import from {@code com.vinncorp.erp.platform}
  * and {@code com.vinncorp.erp.shared}. They MUST NOT import from sibling modules
  * directly — they go through public service interfaces or events.
  *

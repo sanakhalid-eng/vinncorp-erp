@@ -1,13 +1,13 @@
 package com.vinncorp.erp.integration;
 
 import com.vinncorp.erp.AbstractIntegrationTest;
-import com.vinncorp.erp.core.user.entity.UserRole;
+import com.vinncorp.erp.platform.user.entity.UserRole;
 import com.vinncorp.erp.modules.projects.entity.Role;
 import com.vinncorp.erp.modules.projects.enums.RoleScope;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.CustomAccessDeniedException;
-import com.vinncorp.erp.core.user.repository.RoleRepository;
-import com.vinncorp.erp.core.user.repository.UserRoleRepository;
+import com.vinncorp.erp.platform.user.repository.RoleRepository;
+import com.vinncorp.erp.platform.user.repository.UserRoleRepository;
 import com.vinncorp.erp.shared.security.MembershipResolver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

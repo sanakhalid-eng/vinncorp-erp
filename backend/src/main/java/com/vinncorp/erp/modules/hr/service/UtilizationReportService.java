@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.response.EmployeeUtilizationResponse;
-import com.vinncorp.erp.modules.hr.response.UtilizationSummaryResponse;
+import com.vinncorp.erp.modules.hr.dto.response.EmployeeUtilizationResponse;
+import com.vinncorp.erp.modules.hr.dto.response.UtilizationSummaryResponse;
 
 import java.time.LocalDate;
 import java.util.List;

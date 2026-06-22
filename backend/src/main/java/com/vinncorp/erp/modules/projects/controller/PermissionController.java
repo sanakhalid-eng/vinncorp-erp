@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.controller;
 
-import com.vinncorp.erp.core.user.entity.Permission;
-import com.vinncorp.erp.core.user.repository.PermissionRepository;
+import com.vinncorp.erp.platform.user.entity.Permission;
+import com.vinncorp.erp.platform.user.repository.PermissionRepository;
 import com.vinncorp.erp.modules.projects.dto.response.ApiResponse;
 import com.vinncorp.erp.modules.projects.dto.response.PermissionGroupedResponse;
 import com.vinncorp.erp.modules.projects.dto.response.PermissionGroupedResponse.PermissionInfo;

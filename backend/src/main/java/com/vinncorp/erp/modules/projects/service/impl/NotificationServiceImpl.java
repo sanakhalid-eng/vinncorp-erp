@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.entity.UserSummary;
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.UserSummary;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.dto.response.NotificationResponse;
 import com.vinncorp.erp.modules.projects.entity.Notification;
 import com.vinncorp.erp.modules.projects.entity.Task;
@@ -11,7 +11,7 @@ import com.vinncorp.erp.modules.projects.repository.NotificationRepository;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;
 import com.vinncorp.erp.modules.projects.service.NotificationService;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
 import com.vinncorp.erp.modules.projects.dto.response.PortfolioRoadmapItemResponse;
 import com.vinncorp.erp.modules.projects.entity.PortfolioRoadmapItem;
 import com.vinncorp.erp.modules.projects.entity.Project;
@@ -8,7 +8,7 @@ import com.vinncorp.erp.modules.projects.repository.PortfolioRoadmapItemReposito
 import com.vinncorp.erp.modules.projects.repository.ProjectRepository;
 import com.vinncorp.erp.modules.projects.service.PortfolioRoadmapService;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

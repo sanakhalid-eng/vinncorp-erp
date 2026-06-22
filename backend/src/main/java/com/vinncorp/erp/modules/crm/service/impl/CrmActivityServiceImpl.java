@@ -1,10 +1,10 @@
 package com.vinncorp.erp.modules.crm.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.workspace.entity.Workspace;
-import com.vinncorp.erp.core.workspace.repository.WorkspaceRepository;
-import com.vinncorp.erp.modules.audit.service.AuditService;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.workspace.entity.Workspace;
+import com.vinncorp.erp.platform.workspace.repository.WorkspaceRepository;
+import com.vinncorp.erp.platform.audit.service.AuditService;
 import com.vinncorp.erp.modules.crm.entity.CrmActivity;
 import com.vinncorp.erp.modules.crm.repository.CrmActivityRepository;
 import com.vinncorp.erp.modules.crm.service.CrmActivityService;

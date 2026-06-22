@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.dto.response.BlockedStatusResponse;
 import com.vinncorp.erp.modules.projects.dto.response.DependencyGraphResponse;
 import com.vinncorp.erp.modules.projects.dto.response.TaskDependencyResponse;
@@ -23,7 +23,7 @@ import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.DependencyCycleException;
 import com.vinncorp.erp.shared.exception.DependencyValidationException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.shared.security.TaskPermissionEvaluator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

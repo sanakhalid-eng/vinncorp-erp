@@ -1,8 +1,8 @@
 package com.vinncorp.erp.modules.hr.controller;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
-import com.vinncorp.erp.modules.hr.response.*;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.modules.hr.dto.response.*;
 import com.vinncorp.erp.modules.hr.service.AttendanceService;
 import com.vinncorp.erp.modules.hr.service.EmployeeService;
 import com.vinncorp.erp.modules.hr.service.LeaveBalanceService;

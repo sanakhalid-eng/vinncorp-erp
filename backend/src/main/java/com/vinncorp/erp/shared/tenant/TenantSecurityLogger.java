@@ -1,11 +1,11 @@
 package com.vinncorp.erp.shared.tenant;
 
-import com.vinncorp.erp.core.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.User;
 import com.vinncorp.erp.modules.projects.enums.ActionType;
 import com.vinncorp.erp.modules.projects.enums.EntityType;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.modules.projects.service.ActivityLogService;
-import com.vinncorp.erp.core.workspace.service.CurrentWorkspaceResolver;
+import com.vinncorp.erp.platform.workspace.service.CurrentWorkspaceResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

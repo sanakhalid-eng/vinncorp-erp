@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Plus, Search, Edit2, Trash2, DollarSign } from "lucide-react";
 import { toast } from "sonner";
 import { listPayments, createPayment, updatePayment, deletePayment } from "../api/financeApi";

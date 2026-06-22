@@ -1,10 +1,10 @@
 package com.vinncorp.erp.modules.projects.service.impl;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.entity.WorkspaceUserRole;
-import com.vinncorp.erp.core.user.repository.UserRepository;
-import com.vinncorp.erp.core.user.repository.WorkspaceUserRoleRepository;
-import com.vinncorp.erp.core.user.service.WorkspaceRoleService;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.WorkspaceUserRole;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.WorkspaceUserRoleRepository;
+import com.vinncorp.erp.platform.user.service.WorkspaceRoleService;
 import com.vinncorp.erp.modules.projects.entity.Role;
 import com.vinncorp.erp.shared.exception.BadRequestException;
 import com.vinncorp.erp.shared.exception.ResourceNotFoundException;
@@ -57,7 +57,7 @@ public class WorkspaceRoleServiceImpl implements WorkspaceRoleService {
                 .orElseThrow(() -> new ResourceNotFoundException("User not found: " + userId));
 
         WorkspaceUserRole wur = new WorkspaceUserRole();
-        wur.setWorkspace(new com.vinncorp.erp.core.workspace.entity.Workspace());
+        wur.setWorkspace(new com.vinncorp.erp.platform.workspace.entity.Workspace());
         wur.getWorkspace().setId(workspaceId);
         wur.setUser(user);
 
