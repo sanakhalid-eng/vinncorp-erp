@@ -20,8 +20,8 @@ import com.vinncorp.erp.platform.workspace.service.impl.DefaultWorkspaceResolver
 import com.vinncorp.erp.modules.projects.controller.SystemController;
 import com.vinncorp.erp.modules.projects.entity.*;
 import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
-import com.vinncorp.erp.modules.workflow.repository.WorkflowStatusRepository;
-import com.vinncorp.erp.platform.notification.repository.NotificationRepository;
+import com.vinncorp.erp.modules.projects.repository.WorkflowStatusRepository;
+import com.vinncorp.erp.modules.projects.repository.NotificationRepository;
 import com.vinncorp.erp.modules.projects.enums.RoleScope;
 import com.vinncorp.erp.modules.projects.enums.SprintStatus;
 import com.vinncorp.erp.modules.projects.repository.*;

@@ -5,7 +5,7 @@ import com.vinncorp.erp.modules.projects.entity.Task;
 import com.vinncorp.erp.modules.projects.entity.WorkflowStatus;
 import com.vinncorp.erp.modules.projects.repository.LabelRepository;
 import com.vinncorp.erp.modules.projects.repository.TaskRepository;
-import com.vinncorp.erp.modules.workflow.repository.WorkflowStatusRepository;
+import com.vinncorp.erp.modules.projects.repository.WorkflowStatusRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
