@@ -56,7 +56,16 @@ public class JwtKeyProviderImpl implements JwtKeyProvider {
                 this.publicKey = keyPair.getPublic();
             }
         } catch (Exception e) {
-            throw new RuntimeException("Failed to initialize JWT key pair", e);
+            log.warn("Failed to decode JWT_PRIVATE_KEY_BASE64/JWT_PUBLIC_KEY_BASE64, generating ephemeral key pair: {}", e.getMessage());
+            try {
+                KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+                generator.initialize(2048);
+                KeyPair keyPair = generator.generateKeyPair();
+                this.privateKey = keyPair.getPrivate();
+                this.publicKey = keyPair.getPublic();
+            } catch (Exception ex) {
+                throw new RuntimeException("Failed to generate ephemeral JWT key pair", ex);
+            }
         }
     }
 
