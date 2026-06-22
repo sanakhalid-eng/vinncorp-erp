@@ -1,6 +1,6 @@
 package com.vinncorp.erp.modules.hr.entity;
 
-import com.vinncorp.erp.core.audit.BaseTenantEntity;
+import com.vinncorp.erp.platform.audit.BaseTenantEntity;
 import com.vinncorp.erp.modules.hr.enums.LeaveRequestStatus;
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.LeaveBalanceSeedRequest;
-import com.vinncorp.erp.modules.hr.response.LeaveBalanceResponse;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveBalanceSeedRequest;
+import com.vinncorp.erp.modules.hr.dto.response.LeaveBalanceResponse;
 
 import java.util.List;
 

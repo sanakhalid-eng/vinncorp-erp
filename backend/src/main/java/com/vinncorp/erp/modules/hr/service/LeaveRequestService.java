@@ -1,9 +1,9 @@
 package com.vinncorp.erp.modules.hr.service;
 
 import com.vinncorp.erp.modules.hr.enums.LeaveRequestStatus;
-import com.vinncorp.erp.modules.hr.request.LeaveRequestActionRequest;
-import com.vinncorp.erp.modules.hr.request.LeaveRequestCreateRequest;
-import com.vinncorp.erp.modules.hr.response.LeaveRequestResponse;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveRequestActionRequest;
+import com.vinncorp.erp.modules.hr.dto.request.LeaveRequestCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.LeaveRequestResponse;
 
 import java.util.List;
 

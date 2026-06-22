@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.hr.service;
 
-import com.vinncorp.erp.modules.hr.request.DepartmentCreateRequest;
-import com.vinncorp.erp.modules.hr.response.DepartmentResponse;
+import com.vinncorp.erp.modules.hr.dto.request.DepartmentCreateRequest;
+import com.vinncorp.erp.modules.hr.dto.response.DepartmentResponse;
 
 import java.util.List;
 
