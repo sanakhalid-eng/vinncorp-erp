@@ -1,10 +1,10 @@
 package com.vinncorp.erp.shared.security;
 
-import com.vinncorp.erp.core.user.entity.User;
-import com.vinncorp.erp.core.user.entity.UserRole;
+import com.vinncorp.erp.platform.user.entity.User;
+import com.vinncorp.erp.platform.user.entity.UserRole;
 import com.vinncorp.erp.modules.projects.enums.RoleScope;
 import com.vinncorp.erp.modules.projects.repository.ProjectMemberRepository;
-import com.vinncorp.erp.core.user.repository.UserRepository;
+import com.vinncorp.erp.platform.user.repository.UserRepository;
 import com.vinncorp.erp.modules.projects.service.PermissionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

@@ -10,7 +10,6 @@ import com.vinncorp.erp.shared.filter.WorkspaceContextFilter;
 import com.vinncorp.erp.shared.security.JwtAuthFilter;
 import com.vinncorp.erp.shared.security.OAuth2SuccessHandler;
 import jakarta.servlet.http.HttpServletResponse;
-import org.jspecify.annotations.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -29,8 +28,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -124,19 +121,6 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", config);
 
         return source;
-    }
-
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(@NonNull CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins(allowedOrigins.split(","))
-                        .allowedMethods("*")
-                        .allowedHeaders("*");
-            }
-        };
     }
 
     @Bean
