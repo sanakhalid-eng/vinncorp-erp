@@ -1,7 +1,7 @@
 package com.vinncorp.erp.modules.crm.event;
 
-import com.vinncorp.erp.platform.notification.enums.NotificationType;
-import com.vinncorp.erp.platform.notification.service.NotificationService;
+import com.vinncorp.erp.modules.projects.enums.NotificationType;
+import com.vinncorp.erp.modules.projects.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
